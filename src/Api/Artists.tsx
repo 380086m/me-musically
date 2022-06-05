@@ -1,6 +1,7 @@
 import { apiBaseUrl, auth } from "./ApiConstants";
+import { Artist } from "./types";
 
-export const getTopArtists = async (limit: number = 30): Promise<any[]> => {
+export const getTopArtists = async (limit: number = 30): Promise<Artist[]> => {
   const accessToken = await auth.getAccessToken();
   const response = await fetch(`${apiBaseUrl}/me/top/artists?limit=${limit}`, {
     headers: {
