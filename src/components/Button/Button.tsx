@@ -5,7 +5,7 @@ import { ButtonProps } from "./types";
 function Button(props: ButtonProps) {
   return (
     <>
-      <button className="styled-button" onClick={props.onClick}>
+      <button className="primary-button" onClick={props.onClick}>
         {props.text}
       </button>
     </>
