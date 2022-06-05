@@ -2,7 +2,7 @@ import React from "react";
 import { getTopArtists, getTopTracks } from "../Api/Api";
 
 const get = async () => {
-  const artists = await getTopTracks();
+  const artists = await getTopTracks(10, "short_term");
   console.log(artists);
 };
 function Me() {
