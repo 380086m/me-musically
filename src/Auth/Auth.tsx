@@ -61,8 +61,6 @@ export class Auth {
           : `grant_type=refresh_token&refresh_token=${refreshToken}`,
     });
     const data = await response.json();
-    console.log(refreshToken);
-    console.log(data);
     if (data.refresh_token) {
       localStorage.setItem("refreshToken", data.refresh_token);
     }
