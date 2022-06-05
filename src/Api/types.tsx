@@ -19,6 +19,12 @@ export interface Artist {
 }
 
 export interface Track {
+  album: {
+    album_type: string;
+    images: {
+      url: string;
+    }[];
+  };
   artists: Artist[];
   external_urls: {
     spotify: string;
@@ -46,6 +52,24 @@ export interface Album {
   release_date: string;
   release_date_precision: string;
   total_tracks: number;
+  type: string;
+  uri: string;
+}
+
+export interface User {
+  display_name: string;
+  external_urls: {
+    spotify: string;
+  };
+  followers: {
+    href: string;
+    total: number;
+  };
+  href: string;
+  id: string;
+  images: {
+    url: string;
+  }[];
   type: string;
   uri: string;
 }

@@ -1,4 +1,4 @@
-import { Album, Artist } from "./types";
+import { Album, Artist, Track, User } from "./types";
 import { Auth } from "../Auth/Auth";
 
 export const apiBaseUrl = "https://api.spotify.com/v1";
@@ -26,7 +26,7 @@ export const getTopArtists = async (
 export const getTopTracks = async (
   limit: number = 30,
   time_range: string = "long_term"
-): Promise<Album[]> => {
+): Promise<Track[]> => {
   const url = `${apiBaseUrl}/me/top/tracks?limit=${limit}&time_range=${time_range}`;
   const data = await get(url);
   return data.items;
@@ -50,7 +50,7 @@ export const getArtist = async (id: string): Promise<Artist> => {
   return data;
 };
 
-export const getUser = async (): Promise<any> => {
+export const getUser = async (): Promise<User> => {
   const url = `${apiBaseUrl}/me`;
   const data = await get(url);
   return data;

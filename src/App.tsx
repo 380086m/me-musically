@@ -1,19 +1,19 @@
 import React from "react";
-import "./App.css";
+import "./App.sass";
 import { Auth } from "./Auth/Auth";
+import Button from "./components/Button/Button";
 
 function App() {
   const auth = Auth.getInstance();
 
   return (
     <>
-      <button
+      <Button
         onClick={() => {
           auth.requestAuth();
         }}
-      >
-        log in
-      </button>
+        text="Start"
+      />
     </>
   );
 }
