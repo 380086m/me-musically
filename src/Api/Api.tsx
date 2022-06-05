@@ -49,3 +49,9 @@ export const getArtist = async (id: string): Promise<Artist> => {
   const data = await get(url);
   return data;
 };
+
+export const getUser = async (): Promise<any> => {
+  const url = `${apiBaseUrl}/me`;
+  const data = await get(url);
+  return data;
+};
