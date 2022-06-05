@@ -1,17 +1,16 @@
 import React from "react";
-import { getTopArtists } from "../Api/Artists";
+import { getTopArtists, getTopTracks } from "../Api/Api";
 
+const get = async () => {
+  const artists = await getTopTracks();
+  console.log(artists);
+};
 function Me() {
-  const getArtists = async () => {
-    const artists = await getTopArtists();
-    console.log(artists);
-  };
-
   return (
     <>
       <button
         onClick={() => {
-          getArtists();
+          get();
         }}
       >
         get

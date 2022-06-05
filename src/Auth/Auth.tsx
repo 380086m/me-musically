@@ -44,7 +44,7 @@ export class Auth {
   }
 
   public async requestAccessToken(code: string = ""): Promise<string> {
-    const refreshToken = localStorage.getItem("refreshToken");
+    const refreshToken = localStorage.getItem("refreshToken") || "";
     const response = await fetch(Account.tokenUrl!, {
       method: "POST",
       headers: {
@@ -61,11 +61,11 @@ export class Auth {
           : `grant_type=refresh_token&refresh_token=${refreshToken}`,
     });
     const data = await response.json();
+    console.log(refreshToken);
+    console.log(data);
     if (data.refresh_token) {
       localStorage.setItem("refreshToken", data.refresh_token);
     }
-    console.log("Access token: " + data.access_token);
-
     return data.access_token;
   }
 }
