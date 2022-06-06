@@ -18,7 +18,7 @@ function Showcase(props: ShowcaseProps) {
         <h3 className="head-text">{props.header}</h3>
         <div className="showcase-images">
           {props.images ? (
-            props.images.map((image) => <img key={image} src={image} />)
+            props.images.map((image) => <img key={image} src={image || logo} />)
           ) : (
             <img style={{ opacity: 0 }} src={logo} />
           )}

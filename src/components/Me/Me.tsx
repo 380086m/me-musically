@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getTopArtists, getTopTracks, getUser } from "../../Api/Api";
 import Avatar from "../Avatar/Avatar";
 import Showcase from "../Showcase/Showcase";
@@ -14,8 +15,8 @@ function Me() {
     ],
   });
 
-  const [topTracks, setTopTracks] = useState([] as string[]);
-  const [topArtists, setTopArtists] = useState([] as string[]);
+  const [topTracksImages, setTopTracksImages] = useState([] as string[]);
+  const [topArtistsImages, setTopArtistsImages] = useState([] as string[]);
 
   const getResources = async () => {
     await getUser().then((user) => {
@@ -24,11 +25,11 @@ function Me() {
     await getTopTracks(4, "short_term").then((tracks) => {
       let tracksImages = tracks.map((track) => track.album.images[0].url);
       console.log(tracksImages);
-      setTopTracks(tracksImages);
+      setTopTracksImages(tracksImages);
     });
     await getTopArtists(4, "short_term").then((artists) => {
       let artistsImages = artists.map((artist) => artist.images[0].url);
-      setTopArtists(artistsImages);
+      setTopArtistsImages(artistsImages);
     });
   };
 
@@ -39,16 +40,22 @@ function Me() {
   return (
     <>
       <div className="me">
-        <div className="resume">
-          <Avatar source={user.images[0].url}></Avatar>
-          <span className="display-name">{user.display_name}</span>
-        </div>
-
-        <Showcase header="Songs" images={topTracks}></Showcase>
-        <Showcase header="Artists and bands" images={topArtists}></Showcase>
+        <Link to="/me/summary" style={{ display: "contents" }}>
+          <div className="summary">
+            <Avatar source={user.images[0].url}></Avatar>
+            <span className="display-name">{user.display_name}</span>
+          </div>
+        </Link>
+        <Showcase header="Songs" images={topTracksImages}></Showcase>
+        <Showcase
+          header="Artists and bands"
+          images={topArtistsImages}
+        ></Showcase>
         <Showcase header="Genres"></Showcase>
         <Showcase header="Recently listened"></Showcase>
-        <Showcase header="Favorite album"></Showcase>
+        <Link to="/me/favorite-album">
+          <Showcase header="Favorite album"></Showcase>
+        </Link>
       </div>
     </>
   );

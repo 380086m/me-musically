@@ -21,9 +21,20 @@ export interface Artist {
 export interface Track {
   album: {
     album_type: string;
+    artists: Artist[];
+    available_markets: string[];
+    external_urls: {
+      spotify: string;
+    };
+    href: string;
+    id: string;
     images: {
       url: string;
     }[];
+    name: string;
+    release_date: string;
+    total_tracks: number;
+    uri: string;
   };
   artists: Artist[];
   external_urls: {
