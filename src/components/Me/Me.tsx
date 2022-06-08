@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTopArtists, getTopTracks, getUser } from "../../Api/Api";
+import { Artist, Track } from "../../Api/types";
 import Avatar from "../Avatar/Avatar";
 import Showcase from "../Showcase/Showcase";
 import "./Me.sass";
@@ -15,21 +16,18 @@ function Me() {
     ],
   });
 
-  const [topTracksImages, setTopTracksImages] = useState([] as string[]);
-  const [topArtistsImages, setTopArtistsImages] = useState([] as string[]);
+  const [topTracks, setTopTracks] = useState([] as Track[]);
+  const [topArtists, setTopArtists] = useState([] as Artist[]);
 
   const getResources = async () => {
     await getUser().then((user) => {
       setUser(user);
     });
-    await getTopTracks(4, "short_term").then((tracks) => {
-      let tracksImages = tracks.map((track) => track.album.images[0].url);
-      console.log(tracksImages);
-      setTopTracksImages(tracksImages);
+    await getTopTracks(4, "long_term").then((tracks) => {
+      setTopTracks(tracks);
     });
-    await getTopArtists(4, "short_term").then((artists) => {
-      let artistsImages = artists.map((artist) => artist.images[0].url);
-      setTopArtistsImages(artistsImages);
+    await getTopArtists(4, "long_term").then((artists) => {
+      setTopArtists(artists);
     });
   };
 
@@ -46,10 +44,13 @@ function Me() {
             <span className="display-name">{user.display_name}</span>
           </div>
         </Link>
-        <Showcase header="Songs" images={topTracksImages}></Showcase>
+        <Showcase
+          header="Songs"
+          images={topTracks.map((track) => track.album.images[0].url)}
+        ></Showcase>
         <Showcase
           header="Artists and bands"
-          images={topArtistsImages}
+          images={topArtists.map((artist) => artist.images[0].url)}
         ></Showcase>
         <Showcase header="Genres"></Showcase>
         <Showcase header="Recently listened"></Showcase>

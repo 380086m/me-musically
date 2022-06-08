@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthRedirect from "./Auth/AuthRedirectScreen";
 import Me from "./components/Me/Me";
-import Summary from "./components/Me/FavoriteAlbum/FavoriteAlbum";
+import Summary from "./components/Me/Summary/Summary";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,7 +17,7 @@ root.render(
       <Route path="/" element={<App />}></Route>
       <Route path="/redirect" element={<AuthRedirect />}></Route>
       <Route path="/me" element={<Me />}></Route>
-      <Route path="/me/favorite-album" element={<Summary />}></Route>
+      <Route path="/me/summary" element={<Summary />}></Route>
     </Routes>
   </BrowserRouter>
 );

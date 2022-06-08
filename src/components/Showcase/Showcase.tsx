@@ -11,6 +11,7 @@ function Showcase(props: ShowcaseProps) {
       <div
         className={
           "showcase " +
+          (props.images ? "has-images " : "") +
           "background-" +
           Math.floor(1 + Math.random() * (9 - 1 + 1))
         }

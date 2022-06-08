@@ -1,48 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { getAlbum, getTopTracks, getUser } from "../../../Api/Api";
-import { Artist, Track } from "../../../Api/types";
+import { Album, Artist, Track, User } from "../../../Api/types";
+import { getMostRepitedAlbum } from "../utils";
 import "./FavoriteAlbum.sass";
 
 function FavoriteAlbum() {
-  const [user, setUser] = useState({
-    display_name: "",
-    images: [
-      {
-        url: "",
-      },
-    ],
-  });
+  const [user, setUser] = useState({} as User);
 
-  const [album, setAlbum] = useState({
-    artists: [{}] as Artist[],
-    name: "",
-    images: [
-      {
-        url: "",
-      },
-    ],
-  });
+  const [album, setAlbum] = useState({} as Album);
 
-  const getMostRepitedAlbum = async () => {
-    await getTopTracks(100, "long_term").then((tracks: Track[]) => {
-      let albums = tracks.map((track) => track.album.id);
-      let mostRepitedAlbum = albums.reduce((a, b) => {
-        return albums.filter((album) => album === a).length >
-          albums.filter((album) => album === b).length
-          ? a
-          : b;
-      }, "");
-      getAlbum(mostRepitedAlbum).then((album) => {
-        setAlbum(album);
-      });
-    });
-  };
-
-  useEffect(() => {
+  const getResources = async () => {
     getUser().then((user) => {
       setUser(user);
     });
-    getMostRepitedAlbum();
+    setAlbum(await getMostRepitedAlbum());
+  };
+
+  useEffect(() => {
+    getResources();
   }, []);
 
   return (
