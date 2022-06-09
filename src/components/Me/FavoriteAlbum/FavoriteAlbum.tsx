@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getAlbum, getTopTracks, getUser } from "../../../Api/Api";
+import { getAlbum, getTopTracks } from "../../../Api/Api";
 import { Album, Artist, Track, User } from "../../../Api/types";
-import { getMostRepitedAlbum } from "../utils";
+import { getMostRepitedAlbum, getUser } from "../utils";
 import "./FavoriteAlbum.sass";
 
 function FavoriteAlbum() {

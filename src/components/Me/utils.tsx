@@ -1,5 +1,60 @@
-import { getAlbum, getTopArtists, getTopTracks } from "../../Api/Api";
+import {
+  getAlbum,
+  getTopArtists,
+  getTopTracks,
+  getUserData,
+} from "../../Api/Api";
 import { Album, Track } from "../../Api/types";
+
+const saveDataOnLocalStorage = (name: string, data: any) => {
+  localStorage.setItem("mm_" + name, JSON.stringify(data));
+};
+
+export const requestResources = async () => {
+  await getUser().then((user) => {
+    saveDataOnLocalStorage("user", user);
+  });
+  await getTopTracks(50, "long_term").then((tracks) => {
+    saveDataOnLocalStorage("long_term_tracks", tracks);
+  });
+  await getTopTracks(50, "medium_term").then((tracks) => {
+    saveDataOnLocalStorage("medium_term_tracks", tracks);
+  });
+  await getTopTracks(50, "short_term").then((tracks) => {
+    saveDataOnLocalStorage("short_term_tracks", tracks);
+  });
+  await getTopArtists(50, "long_term").then((artists) => {
+    saveDataOnLocalStorage("long_term_artists", artists);
+  });
+  await getTopArtists(50, "medium_term").then((artists) => {
+    saveDataOnLocalStorage("medium_term_artists", artists);
+  });
+  await getTopArtists(50, "short_term").then((artists) => {
+    saveDataOnLocalStorage("short_term_artists", artists);
+  });
+};
+
+export const getUser = async () => {
+  const user = localStorage.getItem("mm_user");
+  if (user) {
+    return JSON.parse(user);
+  }
+  return await getUserData();
+};
+
+export const getTracks = (term: string) => {
+  const tracks = JSON.parse(
+    localStorage.getItem("mm_" + term + "_tracks") || "[]"
+  );
+  return tracks;
+};
+
+export const getArtists = (term: string) => {
+  const artists = JSON.parse(
+    localStorage.getItem("mm_" + term + "_artists") || "[]"
+  );
+  return artists;
+};
 
 export const getTopGenres = async () => {
   let mostListenedGenres = [] as string[];
