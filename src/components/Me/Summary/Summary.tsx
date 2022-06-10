@@ -34,38 +34,67 @@ function Summary() {
 
   return (
     <>
-      <div className="summary">
-        {longTermArtists.length > 0 &&
-          shortTermArtist.length > 0 &&
-          longTermTracks.length > 0 &&
-          shortTermTracks.length > 0 && (
-            <>
-              <p>
-                I'm <ItemText text={user.display_name} />. I listen to{" "}
-                {topGenres[0]}, {topGenres[1]} and {topGenres[2]}. But also like{" "}
-                {topGenres[3]}, {topGenres[4]} and {topGenres[5]}.
-              </p>
-              <p>
-                My favorite artists are{" "}
-                <ItemText
-                  text={longTermArtists[0].name}
-                  imageUrl={longTermArtists[0].images[0].url}
-                />{" "}
-                {longTermArtists[0].name}, {longTermArtists[1].name} and{" "}
-                {longTermArtists[2].name}. My most listened songs are{" "}
-                {mediumTermTracks[0].name} by{" "}
-                {longTermTracks[0].artists[0].name},{longTermTracks[1].name} by{" "}
-                {longTermTracks[1].artists[0].name} and {longTermTracks[2].name}{" "}
-                by {longTermTracks[2].artists[0].name}.
-              </p>
-              <p>
-                Recently I'm listening to {shortTermArtist[0].name},{" "}
-                {shortTermArtist[1].name} and {shortTermArtist[2].name} and
-                right now I'm obsessed with {shortTermTracks[0].name} by{" "}
-                {shortTermTracks[0].artists[0].name}.
-              </p>
-            </>
-          )}
+      <div className="summary-content">
+        <div className="summary">
+          {longTermArtists.length > 0 &&
+            shortTermArtist.length > 0 &&
+            longTermTracks.length > 0 &&
+            shortTermTracks.length > 0 && (
+              <>
+                <h4>That's me, musically</h4>
+                <p>
+                  I'm <ItemText text={user.display_name} />. I listen to{" "}
+                  <ItemText text={topGenres[0]} />,{" "}
+                  <ItemText text={topGenres[1]} />,{" "}
+                  <ItemText text={topGenres[2]} />, but also like to listen to{" "}
+                  <ItemText text={topGenres[3]} />,{" "}
+                  <ItemText text={topGenres[4]} /> and{" "}
+                  <ItemText text={topGenres[5]} />.
+                </p>
+                <p>
+                  My favorite artists are{" "}
+                  <ItemText
+                    text={longTermArtists[0].name}
+                    imageUrl={longTermArtists[0].images[0].url}
+                  />
+                  ,{" "}
+                  <ItemText
+                    text={longTermArtists[1].name}
+                    imageUrl={longTermArtists[1].images[0].url}
+                  />{" "}
+                  and{" "}
+                  <ItemText
+                    text={longTermArtists[2].name}
+                    imageUrl={longTermArtists[2].images[0].url}
+                  />
+                  .
+                </p>
+                <p>
+                  Recently I'm listening to{" "}
+                  <ItemText
+                    text={shortTermArtist[0].name}
+                    imageUrl={shortTermArtist[0].images[0].url}
+                  />
+                  ,{" "}
+                  <ItemText
+                    text={shortTermArtist[1].name}
+                    imageUrl={shortTermArtist[1].images[0].url}
+                  />{" "}
+                  and{" "}
+                  <ItemText
+                    text={shortTermArtist[2].name}
+                    imageUrl={shortTermArtist[2].images[0].url}
+                  />{" "}
+                  and right now I'm obsessed with{" "}
+                  <ItemText
+                    text={shortTermTracks[0].name}
+                    imageUrl={shortTermTracks[0].album.images[0].url}
+                  />{" "}
+                  by <ItemText text={shortTermTracks[0].artists[0].name} />.{" "}
+                </p>
+              </>
+            )}
+        </div>
       </div>
     </>
   );
