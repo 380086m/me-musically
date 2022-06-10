@@ -1,12 +1,11 @@
-import { request } from "https";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTopArtists, getTopTracks } from "../../Api/Api";
 import { Artist, Track, User } from "../../Api/types";
+import { getUser } from "../../Api/utils";
 import Avatar from "../Avatar/Avatar";
 import Showcase from "../Showcase/Showcase";
 import "./Me.sass";
-import { getUser } from "./utils";
 
 function Me() {
   const [user, setUser] = useState({} as User);

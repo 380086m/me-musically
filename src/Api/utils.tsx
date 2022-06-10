@@ -1,10 +1,5 @@
-import {
-  getAlbum,
-  getTopArtists,
-  getTopTracks,
-  getUserData,
-} from "../../Api/Api";
-import { Album, Track } from "../../Api/types";
+import { getAlbum, getTopArtists, getTopTracks, getUserData } from "./Api";
+import { Album, Track } from "./types";
 
 const saveDataOnLocalStorage = (name: string, data: any) => {
   localStorage.setItem("mm_" + name, JSON.stringify(data));
