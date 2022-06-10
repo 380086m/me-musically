@@ -33,6 +33,7 @@ function ItemText(props: ItemTextProps) {
         className="item-text"
         style={{
           color:
+            props.color ||
             colors[Math.floor(1 + Math.random() * (colors.length - 1 + 1))],
         }}
       >

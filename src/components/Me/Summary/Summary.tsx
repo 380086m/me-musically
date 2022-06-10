@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Artist, Track, User } from "../../../Api/types";
+import { Album, Artist, Track, User } from "../../../Api/types";
 import {
   getArtists,
+  getTopAlbums,
   getTopGenres,
   getTracks,
   getUser,
@@ -16,6 +17,7 @@ function Summary() {
   const [longTermTracks, setLongTermTracks] = useState([] as Track[]);
   const [shortTermTracks, setShortTermTracks] = useState([] as Track[]);
   const [topGenres, setTopGenres] = useState([] as string[]);
+  const [topAlbums, setTopsAlbum] = useState([] as Album[]);
   const [user, setUser] = useState({} as User);
 
   const getData = async () => {
@@ -25,6 +27,7 @@ function Summary() {
     setLongTermTracks(await getTracks("long_term"));
     setShortTermTracks(await getTracks("short_term"));
     setTopGenres(await getTopGenres());
+    setTopsAlbum(await getTopAlbums(3));
     setUser(await getUser());
   };
 
@@ -39,14 +42,17 @@ function Summary() {
           {longTermArtists.length > 0 &&
             shortTermArtist.length > 0 &&
             longTermTracks.length > 0 &&
-            shortTermTracks.length > 0 && (
+            shortTermTracks.length > 0 &&
+            topAlbums.length > 0 && (
               <>
-                <h4>That's me, musically</h4>
+                <h4 className="summary-header">
+                  This is <span>me</span>, musically <small>(kind of)</small>{" "}
+                </h4>
                 <p>
                   I'm <ItemText text={user.display_name} />. I listen to{" "}
                   <ItemText text={topGenres[0]} />,{" "}
-                  <ItemText text={topGenres[1]} />,{" "}
-                  <ItemText text={topGenres[2]} />, but also like to listen to{" "}
+                  <ItemText text={topGenres[1]} /> and{" "}
+                  <ItemText text={topGenres[2]} />. But also like to listen to{" "}
                   <ItemText text={topGenres[3]} />,{" "}
                   <ItemText text={topGenres[4]} /> and{" "}
                   <ItemText text={topGenres[5]} />.
@@ -68,6 +74,23 @@ function Summary() {
                     imageUrl={longTermArtists[2].images[0].url}
                   />
                   .
+                </p>
+                <p>
+                  Some of my favorite albums are{" "}
+                  <ItemText
+                    text={topAlbums[0].name}
+                    imageUrl={topAlbums[0].images[0].url}
+                  />
+                  ,{" "}
+                  <ItemText
+                    text={topAlbums[1].name}
+                    imageUrl={topAlbums[1].images[0].url}
+                  />{" "}
+                  and{" "}
+                  <ItemText
+                    text={topAlbums[2].name}
+                    imageUrl={topAlbums[2].images[0].url}
+                  />
                 </p>
                 <p>
                   Recently I'm listening to{" "}

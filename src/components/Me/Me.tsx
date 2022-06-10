@@ -6,6 +6,7 @@ import { getUser } from "../../Api/utils";
 import Avatar from "../Avatar/Avatar";
 import Showcase from "../Showcase/Showcase";
 import "./Me.sass";
+import logo from "../../assets/logo.png";
 
 function Me() {
   const [user, setUser] = useState({} as User);
@@ -31,22 +32,33 @@ function Me() {
         <div className="me">
           <Link to="/me/summary" style={{ display: "contents" }}>
             <div className="summary">
-              <Avatar source={user.images[0].url}></Avatar>
-              <span className="display-name">{user.display_name}</span>
+              <div>
+                <Avatar source={user.images[0].url}></Avatar>
+                <span className="display-name">{user.display_name}</span>
+              </div>
+              <div>
+                <img
+                  src={logo}
+                  alt="logo"
+                  style={{
+                    width: "60px",
+                  }}
+                />
+              </div>
             </div>
           </Link>
           <Showcase
-            header="Songs"
+            header="Top songs"
             images={topTracks.map((track) => track.album.images[0].url)}
           ></Showcase>
           <Showcase
-            header="Artists and bands"
+            header="Top artists and bands"
             images={topArtists.map((artist) => artist.images[0].url)}
           ></Showcase>
-          <Showcase header="Genres"></Showcase>
+          <Showcase header="Top genres"></Showcase>
           <Showcase header="Recently listened"></Showcase>
-          <Link to="/me/favorite-album">
-            <Showcase header="Favorite album"></Showcase>
+          <Link to="/me/albums">
+            <Showcase header="Top albums"></Showcase>
           </Link>
         </div>
       )}

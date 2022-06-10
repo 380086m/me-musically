@@ -73,19 +73,13 @@ export const getTopGenres = async () => {
   return mostListenedGenres;
 };
 
-export const getMostRepitedAlbum = async () => {
-  let album = {} as Album;
-  await getTopTracks(100, "long_term").then((tracks: Track[]) => {
-    let albums = tracks.map((track) => track.album.id);
-    let mostRepitedAlbum = albums.reduce((a, b) => {
-      return albums.filter((album) => album === a).length >
-        albums.filter((album) => album === b).length
-        ? a
-        : b;
-    }, "");
-    getAlbum(mostRepitedAlbum).then((album) => {
-      album = album;
-    });
-  });
-  return album;
+export const getTopAlbums = async (limit: number) => {
+  let topAlbums = [] as Album[];
+  const tracks = getTracks("long_term").slice(0, limit);
+  for (let i = 0; i < tracks.length; i++) {
+    const track = tracks[i];
+    const album = await getAlbum(track.album.id);
+    topAlbums.push(album);
+  }
+  return topAlbums;
 };
