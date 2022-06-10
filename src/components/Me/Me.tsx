@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getTopArtists, getTopTracks } from "../../Api/Api";
 import { Artist, Track, User } from "../../Api/types";
-import { getUser } from "../../Api/utils";
+import { getArtists, getTracks, getUser } from "../../Api/utils";
 import Avatar from "../Avatar/Avatar";
 import Showcase from "../Showcase/Showcase";
 import "./Me.sass";
@@ -16,9 +15,9 @@ function Me() {
   const getResources = async () => {
     const user = (await getUser()) as User;
     setUser(user);
-    const topTracks = await getTopTracks(50, "long_term");
+    const topTracks = getTracks("long_term");
     setTopTracks(topTracks.slice(0, 4));
-    const topArtists = await getTopArtists(50, "long_term");
+    const topArtists = getArtists("long_term");
     setTopArtists(topArtists.slice(0, 4));
   };
 
@@ -31,8 +30,13 @@ function Me() {
       {topTracks.length > 0 && topArtists.length > 0 && (
         <div className="me">
           <Link to="/me/summary" style={{ display: "contents" }}>
-            <div className="summary">
-              <div>
+            <div
+              className="summary"
+              style={{
+                backgroundImage: "url(" + topArtists[0].images[0].url + ")",
+              }}
+            >
+              <div style={{ display: "flex", flexDirection: "column" }}>
                 <Avatar source={user.images[0].url}></Avatar>
                 <span className="display-name">{user.display_name}</span>
               </div>

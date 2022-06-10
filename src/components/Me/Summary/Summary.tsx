@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Album, Artist, Track, User } from "../../../Api/types";
 import {
+  getAlbums,
   getArtists,
-  getTopAlbums,
-  getTopGenres,
+  getGenres,
   getTracks,
   getUser,
 } from "../../../Api/utils";
@@ -21,13 +21,13 @@ function Summary() {
   const [user, setUser] = useState({} as User);
 
   const getData = async () => {
-    setLongTermArtists(await getArtists("long_term"));
-    setMediumTermTracks(await getTracks("medium_term"));
-    setShortTermArtist(await getArtists("short_term"));
-    setLongTermTracks(await getTracks("long_term"));
-    setShortTermTracks(await getTracks("short_term"));
-    setTopGenres(await getTopGenres());
-    setTopsAlbum(await getTopAlbums(3));
+    setLongTermArtists(getArtists("long_term"));
+    setMediumTermTracks(getTracks("medium_term"));
+    setShortTermArtist(getArtists("short_term"));
+    setLongTermTracks(getTracks("long_term"));
+    setShortTermTracks(getTracks("short_term"));
+    setTopGenres(getGenres(5));
+    setTopsAlbum(getAlbums(3));
     setUser(await getUser());
   };
 

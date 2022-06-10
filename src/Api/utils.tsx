@@ -27,6 +27,12 @@ export const requestResources = async () => {
   await getTopArtists(50, "short_term").then((artists) => {
     saveDataOnLocalStorage("short_term_artists", artists);
   });
+  await requestAlbums(10).then((albums) => {
+    saveDataOnLocalStorage("albums", albums);
+  });
+  await requestGenres().then((genres) => {
+    saveDataOnLocalStorage("genres", genres);
+  });
 };
 
 export const getUser = async () => {
@@ -51,7 +57,17 @@ export const getArtists = (term: string) => {
   return artists;
 };
 
-export const getTopGenres = async () => {
+export const getAlbums = (limit: number) => {
+  const albums = JSON.parse(localStorage.getItem("mm_albums")!);
+  return albums;
+};
+
+export const getGenres = (limit: number) => {
+  const genres = JSON.parse(localStorage.getItem("mm_genres")!);
+  return genres;
+};
+
+const requestGenres = async () => {
   let mostListenedGenres = [] as string[];
   await getTopArtists(100, "long_term").then((artists) => {
     let genres = artists.reduce((acc, artist) => {
@@ -73,7 +89,7 @@ export const getTopGenres = async () => {
   return mostListenedGenres;
 };
 
-export const getTopAlbums = async (limit: number) => {
+const requestAlbums = async (limit: number) => {
   let topAlbums = [] as Album[];
   const tracks = getTracks("long_term").slice(0, limit);
   for (let i = 0; i < tracks.length; i++) {

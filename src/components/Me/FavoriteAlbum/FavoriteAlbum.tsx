@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Album, Artist, Track, User } from "../../../Api/types";
-import { getTopAlbums, getUser } from "../../../Api/utils";
+import { getAlbums, getUser } from "../../../Api/utils";
 import "./FavoriteAlbum.sass";
 
 function FavoriteAlbum() {
@@ -12,7 +12,7 @@ function FavoriteAlbum() {
     getUser().then((user) => {
       setUser(user);
     });
-    setAlbum(await getTopAlbums(1));
+    setAlbum(await getAlbums(1));
   };
 
   useEffect(() => {
