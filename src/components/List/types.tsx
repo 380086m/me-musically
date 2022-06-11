@@ -1,4 +1,4 @@
-interface Item {
+export interface Item {
   imageUrl: string;
   text: string;
 }

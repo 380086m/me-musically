@@ -10,12 +10,12 @@ function List(props: ListProps) {
       <div className="list">
         {props.items.map((item, index) => {
           return (
-            <div className="item">
+            <div className="item" key={index}>
               <div className="item-image">
                 <img src={item.imageUrl} />
               </div>
               <div className="item-text">
-                <p>{item.text}</p>
+                <span>{item.text.substring(0, 20)}</span>
               </div>
             </div>
           );

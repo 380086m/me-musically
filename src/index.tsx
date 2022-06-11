@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthRedirect from "./auth/AuthRedirectScreen";
 import Me from "./screens/Me/Me";
 import Navbar from "./components/Navbar/Navbar";
+import Artists from "./screens/Artists/Artists";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -18,6 +19,7 @@ root.render(
       <Route path="/" element={<App />}></Route>
       <Route path="/redirect" element={<AuthRedirect />}></Route>
       <Route path="/me" element={<Me />}></Route>
+      <Route path="/artists" element={<Artists />}></Route>
     </Routes>
   </BrowserRouter>
 );
