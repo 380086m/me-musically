@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { requestResources } from "../Api/utils";
+import { requestResources } from "../api/utils";
 import { Auth } from "./Auth";
 
 function AuthRedirect() {

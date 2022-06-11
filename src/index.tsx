@@ -4,9 +4,8 @@ import "./index.sass";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AuthRedirect from "./Auth/AuthRedirectScreen";
-import Me from "./components/Me/Me";
-import Summary from "./components/Me/Summary/Summary";
+import AuthRedirect from "./auth/AuthRedirectScreen";
+import Me from "./screens/Me/Me";
 import Navbar from "./components/Navbar/Navbar";
 
 const root = ReactDOM.createRoot(
@@ -18,8 +17,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}></Route>
       <Route path="/redirect" element={<AuthRedirect />}></Route>
-      <Route path="/me" element={<Summary />}></Route>
-      <Route path="/me/summary" element={<Summary />}></Route>
+      <Route path="/me" element={<Me />}></Route>
     </Routes>
   </BrowserRouter>
 );

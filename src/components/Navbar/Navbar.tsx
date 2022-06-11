@@ -27,53 +27,49 @@ function Navbar() {
       name: "Me",
     },
     {
-      path: "/albums",
-      name: "Albums",
+      path: "/artists",
+      name: "Artists",
     },
     {
-      path: "/albums2",
-      name: "Albums",
-    },
-    {
-      path: "/albums3",
-      name: "Albums",
+      path: "/songs",
+      name: "Songs",
     },
     {
       path: "/albums",
       name: "Albums",
     },
     {
-      path: "/albums",
-      name: "Albums",
+      path: "/genres",
+      name: "Genres",
     },
   ];
 
   return (
     <>
       <div className="navbar">
-        {!["/", "/redirect"].includes(location.pathname) ? (
+        {!["/", "/redirect"].includes(location.pathname) &&
+        routes[routeIndex - 1] ? (
           <div
-            className="left-arrow"
+            className="arrow left"
             onClick={() => {
               handleArrowClick(routeIndex - 1);
             }}
           >
-            {"<-"}
+            {"< " + routes[routeIndex - 1].name}
           </div>
         ) : (
           <div></div>
         )}
         <div className="github">gh</div>
-
-        <div className="github">gh</div>
-        {!["/", "/redirect"].includes(location.pathname) ? (
+        {!["/", "/redirect"].includes(location.pathname) &&
+        routes[routeIndex + 1] ? (
           <div
-            className="right-arrow"
+            className="arrow right"
             onClick={() => {
               handleArrowClick(routeIndex + 1);
             }}
           >
-            {"->"}
+            {routes[routeIndex + 1]?.name + " >"}
           </div>
         ) : (
           <div></div>

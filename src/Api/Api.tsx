@@ -1,5 +1,5 @@
 import { Album, Artist, Track, User } from "./types";
-import { Auth } from "../Auth/Auth";
+import { Auth } from "../auth/Auth";
 
 export const apiBaseUrl = "https://api.spotify.com/v1";
 export const auth = Auth.getInstance();

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Album, Artist, Track, User } from "../../../Api/types";
+import { Album, Artist, Track, User } from "../../api/types";
 import {
   getAlbums,
   getArtists,
   getGenres,
   getTracks,
   getUser,
-} from "../../../Api/utils";
-import ItemText from "../../ItemText/ItemText";
-import "./Summary.sass";
+} from "../../api/utils";
+import ItemText from "../../components/ItemText/ItemText";
+import "./Me.sass";
 
-function Summary() {
+function Me() {
   const [longTermArtists, setLongTermArtists] = useState([] as Artist[]);
   const [shortTermArtist, setShortTermArtist] = useState([] as Artist[]);
   const [mediumTermTracks, setMediumTermTracks] = useState([] as Track[]);
@@ -123,4 +123,4 @@ function Summary() {
   );
 }
 
-export default Summary;
+export default Me;

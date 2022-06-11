@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.sass";
-import { Auth } from "./Auth/Auth";
+import { Auth } from "./auth/Auth";
 import Button from "./components/Button/Button";
 
 function App() {
