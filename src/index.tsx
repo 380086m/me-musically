@@ -8,6 +8,7 @@ import AuthRedirect from "./auth/AuthRedirectScreen";
 import Me from "./screens/Me/Me";
 import Navbar from "./components/Navbar/Navbar";
 import Artists from "./screens/Artists/Artists";
+import Songs from "./screens/Songs/Songs";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,6 +21,7 @@ root.render(
       <Route path="/redirect" element={<AuthRedirect />}></Route>
       <Route path="/me" element={<Me />}></Route>
       <Route path="/artists" element={<Artists />}></Route>
+      <Route path="/songs" element={<Songs />}></Route>
     </Routes>
   </BrowserRouter>
 );

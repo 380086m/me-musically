@@ -9,22 +9,22 @@ export const requestResources = async () => {
   await getUser().then((user) => {
     saveDataOnLocalStorage("user", user);
   });
-  await getTopTracks(50, "long_term").then((tracks) => {
+  await getTopTracks(15, "long_term").then((tracks) => {
     saveDataOnLocalStorage("long_term_tracks", tracks);
   });
-  await getTopTracks(50, "medium_term").then((tracks) => {
+  await getTopTracks(15, "medium_term").then((tracks) => {
     saveDataOnLocalStorage("medium_term_tracks", tracks);
   });
-  await getTopTracks(50, "short_term").then((tracks) => {
+  await getTopTracks(15, "short_term").then((tracks) => {
     saveDataOnLocalStorage("short_term_tracks", tracks);
   });
-  await getTopArtists(50, "long_term").then((artists) => {
+  await getTopArtists(15, "long_term").then((artists) => {
     saveDataOnLocalStorage("long_term_artists", artists);
   });
-  await getTopArtists(50, "medium_term").then((artists) => {
+  await getTopArtists(15, "medium_term").then((artists) => {
     saveDataOnLocalStorage("medium_term_artists", artists);
   });
-  await getTopArtists(50, "short_term").then((artists) => {
+  await getTopArtists(15, "short_term").then((artists) => {
     saveDataOnLocalStorage("short_term_artists", artists);
   });
   await requestAlbums(10).then((albums) => {
