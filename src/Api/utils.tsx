@@ -67,6 +67,19 @@ export const getGenres = (limit: number) => {
   return genres;
 };
 
+export const getAlbumsAndArtistsImages = async () => {
+  let images = [] as string[];
+  const albums = getAlbums(10);
+  const artists = getArtists("medium_term").slice(0, 10);
+  albums.forEach((album: Album) => {
+    images.push(album.images[0].url);
+  });
+  artists.forEach((artist: any) => {
+    images.push(artist.images[0].url);
+  });
+  return images;
+};
+
 const requestGenres = async () => {
   let mostListenedGenres = [] as string[];
   await getTopArtists(100, "long_term").then((artists) => {

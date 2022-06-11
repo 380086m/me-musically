@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Album, Artist, Track, User } from "../../api/types";
 import {
   getAlbums,
+  getAlbumsAndArtistsImages,
   getArtists,
   getGenres,
   getTracks,
   getUser,
 } from "../../api/utils";
 import ItemText from "../../components/ItemText/ItemText";
+import { setArtistOrAlbumBackground } from "../../utils";
 import "./Me.sass";
 
 function Me() {
@@ -33,6 +35,7 @@ function Me() {
 
   useEffect(() => {
     getData();
+    setArtistOrAlbumBackground();
   }, []);
 
   return (
