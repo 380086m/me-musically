@@ -1,9 +1,10 @@
 export interface Item {
-  imageUrl: string;
+  imageUrl?: string;
   text: string;
   small?: string;
 }
 
 export interface ListProps {
   items: Item[];
+  shape?: "circle" | "square";
 }

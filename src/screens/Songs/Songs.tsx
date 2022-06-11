@@ -49,11 +49,16 @@ function Songs() {
   return (
     <>
       <h3 style={{ textAlign: "center" }}>My most listened songs</h3>
-      <h5>Of all time</h5>
+      <span className="time-header">Of all time</span>
       <List items={longTermSongs} />
-      <h5>For a while now</h5>
+      <span className="time-header">
+        For a while now<small> last 6 months aprox</small>
+      </span>
       <List items={mediumTermSongs} />
-      <h5>Recently</h5>
+      <span className="time-header">
+        Recently
+        <small> last 4 weeks aprox</small>
+      </span>
       <List items={shortTermSongs} />
     </>
   );
