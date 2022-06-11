@@ -7,4 +7,5 @@ export interface Item {
 export interface ListProps {
   items: Item[];
   shape?: "circle" | "square";
+  ordened?: boolean;
 }

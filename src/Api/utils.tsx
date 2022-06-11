@@ -1,5 +1,5 @@
 import { getAlbum, getTopArtists, getTopTracks, getUserData } from "./Api";
-import { Album } from "./types";
+import { Album, Artist, Track } from "./types";
 
 const saveDataOnLocalStorage = (name: string, data: any) => {
   localStorage.setItem("mm_" + name, JSON.stringify(data));
@@ -21,7 +21,7 @@ export const requestResources = async () => {
   await getTopArtists(15, "long_term").then((artists) => {
     saveDataOnLocalStorage("long_term_artists", artists);
   });
-  await getTopArtists(15, "medium_term").then((artists) => {
+  await getTopArtists(30, "medium_term").then((artists) => {
     saveDataOnLocalStorage("medium_term_artists", artists);
   });
   await getTopArtists(15, "short_term").then((artists) => {
@@ -81,25 +81,14 @@ export const getAlbumsAndArtistsImages = async () => {
 };
 
 const requestGenres = async () => {
-  let mostListenedGenres = [] as string[];
-  await getTopArtists(100, "long_term").then((artists) => {
-    let genres = artists.reduce((acc, artist) => {
-      return artist.genres.concat([...acc]);
-    }, [] as string[]);
-    let genresCount = genres.reduce((acc, genre) => {
-      if (acc[genre]) {
-        acc[genre]++;
-      } else {
-        acc[genre] = 1;
-      }
-      return acc;
-    }, {} as { [key: string]: number });
-    let genresCountSorted = Object.keys(genresCount)
-      .sort((a, b) => genresCount[b] - genresCount[a])
-      .slice(0, 10);
-    mostListenedGenres = genresCountSorted;
+  const artists: Artist[] = getArtists("medium_term");
+  const genres = [] as string[];
+  artists.forEach((artist: Artist) => {
+    if (artist.genres.length > 0) {
+      genres.push(artist.genres[0]);
+    }
   });
-  return mostListenedGenres;
+  return genres;
 };
 
 const requestAlbums = async (limit: number) => {

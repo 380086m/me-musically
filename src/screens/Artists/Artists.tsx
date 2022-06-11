@@ -3,7 +3,7 @@ import { Artist } from "../../api/types";
 import { getArtists } from "../../api/utils";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
-import { setArtistOrAlbumBackground } from "../../utils";
+import { setRandomBackground } from "../../utils";
 import "./Artists.sass";
 
 function Artists() {
@@ -40,7 +40,7 @@ function Artists() {
 
   useEffect(() => {
     getData();
-    setArtistOrAlbumBackground();
+    setRandomBackground();
   }, []);
 
   return (

@@ -9,7 +9,7 @@ import {
   getUser,
 } from "../../api/utils";
 import ItemText from "../../components/ItemText/ItemText";
-import { setArtistOrAlbumBackground } from "../../utils";
+import { setRandomBackground } from "../../utils";
 import "./Me.sass";
 
 function Me() {
@@ -35,7 +35,7 @@ function Me() {
 
   useEffect(() => {
     getData();
-    setArtistOrAlbumBackground();
+    setRandomBackground();
   }, []);
 
   return (

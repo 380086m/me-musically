@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Artists from "./screens/Artists/Artists";
 import Songs from "./screens/Songs/Songs";
 import Albums from "./screens/Albums/Albums";
+import Genres from "./screens/Genres/Genres";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -24,6 +25,7 @@ root.render(
       <Route path="/artists" element={<Artists />}></Route>
       <Route path="/songs" element={<Songs />}></Route>
       <Route path="/albums" element={<Albums />}></Route>
+      <Route path="/genres" element={<Genres />}></Route>
     </Routes>
   </BrowserRouter>
 );
