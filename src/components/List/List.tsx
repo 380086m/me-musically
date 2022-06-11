@@ -16,6 +16,7 @@ function List(props: ListProps) {
               </div>
               <div className="item-text">
                 <span>{item.text.substring(0, 3000)}</span>
+                {item.small && <small>{" - " + item.small}</small>}
               </div>
             </div>
           );

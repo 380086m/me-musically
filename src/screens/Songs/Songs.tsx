@@ -18,6 +18,7 @@ function Songs() {
         .map((song: Track) => ({
           imageUrl: song.album.images[0].url,
           text: song.name,
+          small: song.artists[0].name,
         }))
     );
     setMediumTermSongs(
@@ -26,6 +27,7 @@ function Songs() {
         .map((song: Track) => ({
           imageUrl: song.album.images[0].url,
           text: song.name,
+          small: song.artists[0].name,
         }))
     );
     setLongTermSongs(
@@ -34,6 +36,7 @@ function Songs() {
         .map((song: Track) => ({
           imageUrl: song.album.images[0].url,
           text: song.name,
+          small: song.artists[0].name,
         }))
     );
   };

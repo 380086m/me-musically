@@ -25,23 +25,23 @@ function Navbar() {
   const routes = [
     {
       path: "/me",
-      name: "Me",
+      name: "me",
     },
     {
       path: "/artists",
-      name: "My artists",
+      name: "my artists",
     },
     {
       path: "/songs",
-      name: "My songs",
+      name: "my songs",
     },
     {
       path: "/albums",
-      name: "My albums",
+      name: "my albums",
     },
     {
       path: "/genres",
-      name: "My genres",
+      name: "my genres",
     },
   ];
 
