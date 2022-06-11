@@ -43,7 +43,7 @@ function Artists() {
 
   return (
     <>
-      <h3 style={{ textAlign: "center" }}>My most listened songs</h3>
+      <h3 style={{ textAlign: "center" }}>My most listened artists</h3>
       <h5>Of all time</h5>
       <List items={longTermArtists} />
       <h5>For a while now</h5>

@@ -15,7 +15,7 @@ function List(props: ListProps) {
                 <img src={item.imageUrl} />
               </div>
               <div className="item-text">
-                <span>{item.text.substring(0, 20)}</span>
+                <span>{item.text.substring(0, 3000)}</span>
               </div>
             </div>
           );

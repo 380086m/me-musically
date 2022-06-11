@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import githubLogo from "../../assets/github.png";
 import "./Navbar.sass";
 
 function Navbar() {
@@ -28,19 +29,19 @@ function Navbar() {
     },
     {
       path: "/artists",
-      name: "Artists",
+      name: "My artists",
     },
     {
       path: "/songs",
-      name: "Songs",
+      name: "My songs",
     },
     {
       path: "/albums",
-      name: "Albums",
+      name: "My albums",
     },
     {
       path: "/genres",
-      name: "Genres",
+      name: "My genres",
     },
   ];
 
@@ -60,7 +61,11 @@ function Navbar() {
         ) : (
           <div></div>
         )}
-        <div className="github">gh</div>
+        <div className="github">
+          <a href="https://github.com/380086m/me-musically">
+            <img src={githubLogo} style={{ width: "35px" }} />
+          </a>
+        </div>
         {!["/", "/redirect"].includes(location.pathname) &&
         routes[routeIndex + 1] ? (
           <div
