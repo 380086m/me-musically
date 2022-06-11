@@ -5,7 +5,7 @@ import { ItemTextProps } from "./types";
 function ItemText(props: ItemTextProps) {
   useEffect(() => {}, []);
 
-  const colors = ["#FEF9A7", "#FAC213", "#F77E21", "#D61C4E"];
+  const colors = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF"];
 
   return (
     <>
