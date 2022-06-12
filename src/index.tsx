@@ -3,32 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.sass";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AuthRedirect from "./auth/AuthRedirectScreen";
-import Me from "./screens/Me/Me";
-import Navbar from "./components/Navbar/Navbar";
-import Artists from "./screens/Artists/Artists";
-import Songs from "./screens/Songs/Songs";
-import Albums from "./screens/Albums/Albums";
-import Genres from "./screens/Genres/Genres";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-root.render(
-  <BrowserRouter>
-    <Navbar></Navbar>
-    <Routes>
-      <Route path="/" element={<App />}></Route>
-      <Route path="/redirect" element={<AuthRedirect />}></Route>
-      <Route path="/me" element={<Me />}></Route>
-      <Route path="/artists" element={<Artists />}></Route>
-      <Route path="/songs" element={<Songs />}></Route>
-      <Route path="/albums" element={<Albums />}></Route>
-      <Route path="/genres" element={<Genres />}></Route>
-    </Routes>
-  </BrowserRouter>
-);
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

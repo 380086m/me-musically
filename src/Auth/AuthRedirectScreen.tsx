@@ -9,8 +9,8 @@ function AuthRedirect() {
   const auth = Auth.getInstance();
 
   const getResources = async () => {
-    await requestResources();
-    auth.requestAccessToken(searchParams.get("code")!).then(() => {
+    auth.requestAccessToken(searchParams.get("code")!).then(async () => {
+      await requestResources();
       window.location.replace("/me");
     });
   };

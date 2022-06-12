@@ -40,7 +40,7 @@ function Me() {
 
   return (
     <>
-      <div className="summary-content">
+      <div className="summary-container">
         <div className="summary">
           {longTermArtists.length > 0 &&
             shortTermArtist.length > 0 &&
