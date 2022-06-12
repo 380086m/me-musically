@@ -8,6 +8,7 @@ const saveDataOnLocalStorage = (name: string, data: any) => {
 export const requestResources = async () => {
   await getUser().then((user) => {
     saveDataOnLocalStorage("user", user);
+    window.dispatchEvent(new CustomEvent("mm_user_ready"));
   });
   await getTopTracks(15, "long_term").then((tracks) => {
     saveDataOnLocalStorage("long_term_tracks", tracks);
@@ -17,6 +18,7 @@ export const requestResources = async () => {
   });
   await getTopTracks(15, "short_term").then((tracks) => {
     saveDataOnLocalStorage("short_term_tracks", tracks);
+    window.dispatchEvent(new CustomEvent("mm_tracks_ready"));
   });
   await getTopArtists(15, "long_term").then((artists) => {
     saveDataOnLocalStorage("long_term_artists", artists);
@@ -26,9 +28,11 @@ export const requestResources = async () => {
   });
   await getTopArtists(15, "short_term").then((artists) => {
     saveDataOnLocalStorage("short_term_artists", artists);
+    window.dispatchEvent(new CustomEvent("mm_artists_ready"));
   });
   await requestAlbums(10).then((albums) => {
     saveDataOnLocalStorage("albums", albums);
+    window.dispatchEvent(new CustomEvent("mm_albums_ready"));
   });
   await requestGenres().then((genres) => {
     saveDataOnLocalStorage("genres", genres);
