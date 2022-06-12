@@ -7,35 +7,36 @@ import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
 function Artists() {
-  const [shortTermArtists, setShortTermArtists] = useState([] as Item[]);
-  const [mediumTermArtists, setMediumTermArtists] = useState([] as Item[]);
-  const [longTermArtists, setLongTermArtists] = useState([] as Item[]);
+  const [artists, setArtists] = useState({
+    longTerm: [] as Item[],
+    mediumTerms: [] as Item[],
+    shortTerm: [] as Item[],
+  });
 
   const getData = async () => {
-    setShortTermArtists(
-      await getArtists("short_term")
-        .slice(0, 10)
-        .map((artist: Artist) => ({
-          imageUrl: artist.images[0].url,
-          text: artist.name,
-        }))
-    );
-    setMediumTermArtists(
-      await getArtists("medium_term")
-        .slice(0, 10)
-        .map((artist: Artist) => ({
-          imageUrl: artist.images[0].url,
-          text: artist.name,
-        }))
-    );
-    setLongTermArtists(
-      await getArtists("long_term")
-        .slice(0, 10)
-        .map((artist: Artist) => ({
-          imageUrl: artist.images[0].url,
-          text: artist.name,
-        }))
-    );
+    const shortTermArtists: Item[] = await getArtists("short_term")
+      .slice(0, 10)
+      .map((artist: Artist) => ({
+        imageUrl: artist.images[0].url,
+        text: artist.name,
+      }));
+    const mediumTermArtists: Item[] = await getArtists("medium_term")
+      .slice(0, 10)
+      .map((artist: Artist) => ({
+        imageUrl: artist.images[0].url,
+        text: artist.name,
+      }));
+    const longTermArtists: Item[] = await getArtists("long_term")
+      .slice(0, 10)
+      .map((artist: Artist) => ({
+        imageUrl: artist.images[0].url,
+        text: artist.name,
+      }));
+    setArtists({
+      longTerm: longTermArtists,
+      mediumTerms: mediumTermArtists,
+      shortTerm: shortTermArtists,
+    });
   };
 
   useEffect(() => {
@@ -50,13 +51,13 @@ function Artists() {
         Recently
         <small> last 4 weeks aprox</small>
       </span>
-      <List items={shortTermArtists} />
+      <List items={artists.shortTerm} />
       <span className="time-header">
         For a while now<small> last 6 months aprox</small>
       </span>
-      <List items={mediumTermArtists} />
+      <List items={artists.mediumTerms} />
       <span className="time-header">Of all time</span>
-      <List items={longTermArtists} />
+      <List items={artists.longTerm} />
     </>
   );
 }

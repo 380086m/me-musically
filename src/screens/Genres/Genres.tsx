@@ -25,7 +25,6 @@ function Genres() {
       number: genresCount[genre].number,
       percentage: genresCount[genre].percentage,
     }));
-    console.log(mappedGenres);
     return mappedGenres;
   };
 

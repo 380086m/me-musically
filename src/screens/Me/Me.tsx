@@ -13,24 +13,26 @@ import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
 function Me() {
-  const [longTermArtists, setLongTermArtists] = useState([] as Artist[]);
-  const [shortTermArtist, setShortTermArtist] = useState([] as Artist[]);
-  const [mediumTermTracks, setMediumTermTracks] = useState([] as Track[]);
-  const [longTermTracks, setLongTermTracks] = useState([] as Track[]);
-  const [shortTermTracks, setShortTermTracks] = useState([] as Track[]);
-  const [topGenres, setTopGenres] = useState([] as string[]);
-  const [topAlbums, setTopsAlbum] = useState([] as Album[]);
-  const [user, setUser] = useState({} as User);
+  const [data, setData] = useState({
+    longTermArtists: [] as Artist[],
+    shortTermArtists: [] as Artist[],
+    longTermTracks: [] as Track[],
+    shortTermTracks: [] as Track[],
+    topAlbums: [] as Album[],
+    topGenres: [] as string[],
+    user: {} as User,
+  });
 
   const getData = async () => {
-    setLongTermArtists(getArtists("long_term"));
-    setMediumTermTracks(getTracks("medium_term"));
-    setShortTermArtist(getArtists("short_term"));
-    setLongTermTracks(getTracks("long_term"));
-    setShortTermTracks(getTracks("short_term"));
-    setTopGenres(getGenres(5));
-    setTopsAlbum(getAlbums(3));
-    setUser(await getUser());
+    setData({
+      longTermArtists: getArtists("long_term"),
+      shortTermArtists: getArtists("short_term"),
+      longTermTracks: getTracks("long_term"),
+      shortTermTracks: getTracks("short_term"),
+      topAlbums: getAlbums(3),
+      topGenres: getGenres(5),
+      user: await getUser(),
+    });
   };
 
   useEffect(() => {
@@ -42,81 +44,82 @@ function Me() {
     <>
       <div className="summary-container">
         <div className="summary">
-          {longTermArtists.length > 0 &&
-            shortTermArtist.length > 0 &&
-            longTermTracks.length > 0 &&
-            shortTermTracks.length > 0 &&
-            topAlbums.length > 0 && (
+          {data.longTermArtists.length > 0 &&
+            data.shortTermArtists.length > 0 &&
+            data.longTermTracks.length > 0 &&
+            data.shortTermTracks.length > 0 &&
+            data.topAlbums.length > 0 && (
               <>
                 <h4 className="summary-header">
                   This is <span>me</span>, musically <small>(kind of)</small>{" "}
                 </h4>
                 <p>
-                  I'm <ItemText text={user.display_name} />. I listen to{" "}
-                  <ItemText text={topGenres[0]} />,{" "}
-                  <ItemText text={topGenres[1]} /> and{" "}
-                  <ItemText text={topGenres[2]} />. But also like to listen to{" "}
-                  <ItemText text={topGenres[3]} />,{" "}
-                  <ItemText text={topGenres[4]} /> and{" "}
-                  <ItemText text={topGenres[5]} />.
+                  I'm <ItemText text={data.user.display_name} />. I listen to{" "}
+                  <ItemText text={data.topGenres[0]} />,{" "}
+                  <ItemText text={data.topGenres[1]} /> and{" "}
+                  <ItemText text={data.topGenres[2]} />. But also like to listen
+                  to <ItemText text={data.topGenres[3]} />,{" "}
+                  <ItemText text={data.topGenres[4]} /> and{" "}
+                  <ItemText text={data.topGenres[5]} />.
                 </p>
                 <p>
                   My favorite artists are{" "}
                   <ItemText
-                    text={longTermArtists[0].name}
-                    imageUrl={longTermArtists[0].images[0].url}
+                    text={data.longTermArtists[0].name}
+                    imageUrl={data.longTermArtists[0].images[0].url}
                   />
                   ,{" "}
                   <ItemText
-                    text={longTermArtists[1].name}
-                    imageUrl={longTermArtists[1].images[0].url}
+                    text={data.longTermArtists[1].name}
+                    imageUrl={data.longTermArtists[1].images[0].url}
                   />{" "}
                   and{" "}
                   <ItemText
-                    text={longTermArtists[2].name}
-                    imageUrl={longTermArtists[2].images[0].url}
+                    text={data.longTermArtists[2].name}
+                    imageUrl={data.longTermArtists[2].images[0].url}
                   />
                   .
                 </p>
                 <p>
                   Some of my favorite albums are{" "}
                   <ItemText
-                    text={topAlbums[0].name}
-                    imageUrl={topAlbums[0].images[0].url}
+                    text={data.topAlbums[0].name}
+                    imageUrl={data.topAlbums[0].images[0].url}
                   />
                   ,{" "}
                   <ItemText
-                    text={topAlbums[1].name}
-                    imageUrl={topAlbums[1].images[0].url}
+                    text={data.topAlbums[1].name}
+                    imageUrl={data.topAlbums[1].images[0].url}
                   />{" "}
                   and{" "}
                   <ItemText
-                    text={topAlbums[2].name}
-                    imageUrl={topAlbums[2].images[0].url}
+                    text={data.topAlbums[2].name}
+                    imageUrl={data.topAlbums[2].images[0].url}
                   />
                 </p>
                 <p>
                   Recently I'm listening to{" "}
                   <ItemText
-                    text={shortTermArtist[0].name}
-                    imageUrl={shortTermArtist[0].images[0].url}
+                    text={data.shortTermArtists[0].name}
+                    imageUrl={data.shortTermArtists[0].images[0].url}
                   />
                   ,{" "}
                   <ItemText
-                    text={shortTermArtist[1].name}
-                    imageUrl={shortTermArtist[1].images[0].url}
+                    text={data.shortTermArtists[1].name}
+                    imageUrl={data.shortTermArtists[1].images[0].url}
                   />{" "}
                   and{" "}
                   <ItemText
-                    text={shortTermArtist[2].name}
-                    imageUrl={shortTermArtist[2].images[0].url}
+                    text={data.shortTermArtists[2].name}
+                    imageUrl={data.shortTermArtists[2].images[0].url}
                   />{" "}
                   and right now I'm obsessed with{" "}
                   <ItemText
-                    text={shortTermTracks[0].name}
-                    imageUrl={shortTermTracks[0].album.images[0].url}
+                    text={data.shortTermTracks[0].name}
+                    imageUrl={data.shortTermTracks[0].album.images[0].url}
                   />{" "}
-                  by <ItemText text={shortTermTracks[0].artists[0].name} />.{" "}
+                  by <ItemText text={data.shortTermTracks[0].artists[0].name} />
+                  .{" "}
                 </p>
               </>
             )}

@@ -60,9 +60,7 @@ export class Auth {
           ? `grant_type=authorization_code&code=${code}&redirect_uri=${this.redirectUri}`
           : `grant_type=refresh_token&refresh_token=${refreshToken}`,
     });
-    console.log(code.length);
     const data = await response.json();
-    console.log(data);
     if (data.refresh_token) {
       localStorage.setItem("refreshToken", data.refresh_token);
     }

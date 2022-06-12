@@ -7,38 +7,38 @@ import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
 function Songs() {
-  const [shortTermSongs, setShortTermSongs] = useState([] as Item[]);
-  const [mediumTermSongs, setMediumTermSongs] = useState([] as Item[]);
-  const [longTermSongs, setLongTermSongs] = useState([] as Item[]);
-
+  const [tracks, setTracks] = useState({
+    longTerm: [] as Item[],
+    mediumTerms: [] as Item[],
+    shortTerm: [] as Item[],
+  });
   const getData = async () => {
-    setShortTermSongs(
-      await getTracks("short_term")
-        .slice(0, 10)
-        .map((song: Track) => ({
-          imageUrl: song.album.images[0].url,
-          text: song.name,
-          small: song.artists[0].name,
-        }))
-    );
-    setMediumTermSongs(
-      await getTracks("medium_term")
-        .slice(0, 10)
-        .map((song: Track) => ({
-          imageUrl: song.album.images[0].url,
-          text: song.name,
-          small: song.artists[0].name,
-        }))
-    );
-    setLongTermSongs(
-      await getTracks("long_term")
-        .slice(0, 10)
-        .map((song: Track) => ({
-          imageUrl: song.album.images[0].url,
-          text: song.name,
-          small: song.artists[0].name,
-        }))
-    );
+    const shortTerm = await getTracks("short_term")
+      .slice(0, 10)
+      .map((song: Track) => ({
+        imageUrl: song.album.images[0].url,
+        text: song.name,
+        small: song.artists[0].name,
+      }));
+    const mediumTerm = await getTracks("medium_term")
+      .slice(0, 10)
+      .map((song: Track) => ({
+        imageUrl: song.album.images[0].url,
+        text: song.name,
+        small: song.artists[0].name,
+      }));
+    const longTerm = await getTracks("long_term")
+      .slice(0, 10)
+      .map((song: Track) => ({
+        imageUrl: song.album.images[0].url,
+        text: song.name,
+        small: song.artists[0].name,
+      }));
+    setTracks({
+      longTerm,
+      mediumTerms: mediumTerm,
+      shortTerm,
+    });
   };
 
   useEffect(() => {
@@ -53,13 +53,13 @@ function Songs() {
         Recently
         <small> last 4 weeks aprox</small>
       </span>
-      <List items={shortTermSongs} />
+      <List items={tracks.shortTerm} />
       <span className="time-header">
         For a while now<small> last 6 months aprox</small>
       </span>
-      <List items={mediumTermSongs} />
+      <List items={tracks.mediumTerms} />
       <span className="time-header">Of all time</span>
-      <List items={longTermSongs} />
+      <List items={tracks.longTerm} />
     </>
   );
 }
