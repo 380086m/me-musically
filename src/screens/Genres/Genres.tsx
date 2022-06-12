@@ -4,7 +4,7 @@ import { getAlbums, getGenres } from "../../api/utils";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
 import { setRandomBackground } from "../../utils";
-import "./Genres.sass";
+import "../Screens.sass";
 
 function Genres() {
   const [genres, setGenres] = useState([] as Item[]);
@@ -46,6 +46,7 @@ function Genres() {
 
   return (
     <>
+      <h3 style={{ textAlign: "center" }}>My most listened genres</h3>
       <List items={genres} ordened={true} />
     </>
   );

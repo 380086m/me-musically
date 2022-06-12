@@ -4,7 +4,7 @@ import { getTracks } from "../../api/utils";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
 import { setRandomBackground } from "../../utils";
-import "./Songs.sass";
+import "../Screens.sass";
 
 function Songs() {
   const [shortTermSongs, setShortTermSongs] = useState([] as Item[]);
@@ -49,17 +49,17 @@ function Songs() {
   return (
     <>
       <h3 style={{ textAlign: "center" }}>My most listened songs</h3>
-      <span className="time-header">Of all time</span>
-      <List items={longTermSongs} />
-      <span className="time-header">
-        For a while now<small> last 6 months aprox</small>
-      </span>
-      <List items={mediumTermSongs} />
       <span className="time-header">
         Recently
         <small> last 4 weeks aprox</small>
       </span>
       <List items={shortTermSongs} />
+      <span className="time-header">
+        For a while now<small> last 6 months aprox</small>
+      </span>
+      <List items={mediumTermSongs} />
+      <span className="time-header">Of all time</span>
+      <List items={longTermSongs} />
     </>
   );
 }

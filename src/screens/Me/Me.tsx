@@ -10,7 +10,7 @@ import {
 } from "../../api/utils";
 import ItemText from "../../components/ItemText/ItemText";
 import { setRandomBackground } from "../../utils";
-import "./Me.sass";
+import "../Screens.sass";
 
 function Me() {
   const [longTermArtists, setLongTermArtists] = useState([] as Artist[]);
