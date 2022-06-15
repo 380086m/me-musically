@@ -19,18 +19,21 @@ function Artists() {
       .map((artist: Artist) => ({
         imageUrl: artist.images[0].url,
         text: artist.name,
+        href: artist.external_urls.spotify,
       }));
     const mediumTermArtists: Item[] = await getArtists("medium_term")
       .slice(0, 10)
       .map((artist: Artist) => ({
         imageUrl: artist.images[0].url,
         text: artist.name,
+        href: artist.external_urls.spotify,
       }));
     const longTermArtists: Item[] = await getArtists("long_term")
       .slice(0, 10)
       .map((artist: Artist) => ({
         imageUrl: artist.images[0].url,
         text: artist.name,
+        href: artist.external_urls.spotify,
       }));
     setArtists({
       longTerm: longTermArtists,

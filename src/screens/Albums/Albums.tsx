@@ -15,6 +15,7 @@ function Albums() {
         imageUrl: album.images[0].url,
         text: album.name,
         small: album.artists[0].name,
+        href: album.external_urls.spotify,
       }))
     );
   };

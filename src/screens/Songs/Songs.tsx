@@ -19,6 +19,7 @@ function Songs() {
         imageUrl: song.album.images[0].url,
         text: song.name,
         small: song.artists[0].name,
+        href: song.external_urls.spotify,
       }));
     const mediumTerm = await getTracks("medium_term")
       .slice(0, 10)
@@ -26,6 +27,7 @@ function Songs() {
         imageUrl: song.album.images[0].url,
         text: song.name,
         small: song.artists[0].name,
+        href: song.external_urls.spotify,
       }));
     const longTerm = await getTracks("long_term")
       .slice(0, 10)
@@ -33,6 +35,7 @@ function Songs() {
         imageUrl: song.album.images[0].url,
         text: song.name,
         small: song.artists[0].name,
+        href: song.external_urls.spotify,
       }));
     setTracks({
       longTerm,

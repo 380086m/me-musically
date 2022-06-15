@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ItemText.sass";
 import { ItemTextProps } from "./types";
+import spotifyIso from "../../assets/spotify-iso.png";
 
 function ItemText(props: ItemTextProps) {
   useEffect(() => {}, []);
@@ -9,18 +10,23 @@ function ItemText(props: ItemTextProps) {
 
   return (
     <>
-      <span
-        className="item-text"
-        style={{
-          color:
-            props.color ||
-            colors[Math.floor(1 + Math.random() * (colors.length - 1 + 1))],
-        }}
-      >
-        {props.text}
-        {""}
-        {props.imageUrl && <img src={props.imageUrl} />}
-      </span>
+      <a href={props.href} target="_blank">
+        <div className="item-text-container">
+          <span
+            className="item-text"
+            style={{
+              color:
+                props.color ||
+                colors[Math.floor(1 + Math.random() * (colors.length - 1 + 1))],
+            }}
+          >
+            <img className="spotify-logo" src={spotifyIso} alt="" />
+            {props.text}
+            {""}
+            {props.imageUrl && <img className="cover" src={props.imageUrl} />}
+          </span>
+        </div>
+      </a>
     </>
   );
 }

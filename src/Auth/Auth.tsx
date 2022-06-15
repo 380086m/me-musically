@@ -26,11 +26,7 @@ export class Auth {
   }
 
   public async requestAuth() {
-    const scopes = [
-      "user-top-read",
-      "user-read-currently-playing",
-      "user-read-playback-state",
-    ];
+    const scopes = ["user-top-read"];
     const url =
       Account.authorizeUrl +
       "?client_id=" +

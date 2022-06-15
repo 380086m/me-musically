@@ -7,6 +7,26 @@ function Navbar() {
   const [routeIndex, setRouteIndex] = React.useState(0);
   const [location, setLocation] = React.useState(useLocation());
 
+  const disconnect = () => {
+    if (window.confirm("Are you sure you want to disconnect?")) {
+      localStorage.clear();
+      window.location.replace("/");
+    }
+  };
+
+  const disconnectButton = () => {
+    if (
+      localStorage.getItem("refreshToken") &&
+      window.location.pathname !== "/"
+    ) {
+      return (
+        <button className="primary-button" onClick={disconnect}>
+          Disconnect
+        </button>
+      );
+    }
+  };
+
   const handleArrowClick = (index: number) => {
     if (index >= 0 && index < routes.length) {
       setRouteIndex(index);
@@ -59,7 +79,9 @@ function Navbar() {
             {"< " + routes[routeIndex - 1].name}
           </div>
         ) : (
-          <div></div>
+          <div className="left">
+            <div>{disconnectButton()}</div>
+          </div>
         )}
         <div className="github">
           <a href="https://github.com/380086m/me-musically">

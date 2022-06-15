@@ -1,25 +1,42 @@
 .list
   margin-bottom: 1em
+  a
+    text-decoration: none
+    color: unset
 
 .item
-  font-size: .9em
-  padding: .5em 0em 0 .5em
   display: flex
   align-items: center
-  justify-content: start
+  justify-content: space-between
   border-bottom: 2px solid #342f2f
-  overflow: hidden
-  text-overflow: ellipsis
-  white-space: nowrap
+  padding-right: .3em
   &:last-child
     border-bottom: none
   &:hover
-    background-color: #000
-  .item-image img
-    width: 2.3rem
-    height: 2.3rem
-  .item-text
-    margin-left: 1em
-    small
-      font-size: .8em
-      opacity: .4
+    background-color: rgba(0, 0, 0, 0.5)
+
+  .spotify-logo
+    margin-left: .6em
+    display: flex
+  .item-content
+    font-size: .9em
+    padding: .5em 0em 0 .5em
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+    .item-image img
+      width: 2.3rem
+      height: 2.3rem
+    .item-text
+      margin-left: 1em
+      display: flex
+      flex-direction: column
+      span
+        line-height: 17px
+      small
+        font-size: .8em
+        opacity: .4

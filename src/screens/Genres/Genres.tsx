@@ -34,6 +34,7 @@ function Genres() {
       genres.map((genre) => ({
         text: genre.text,
         small: `${genre.percentage!.toFixed(2)}%`,
+        href: `https://open.spotify.com/search/${genre.text}`,
       }))
     );
   };
