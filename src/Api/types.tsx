@@ -84,3 +84,9 @@ export interface User {
   type: string;
   uri: string;
 }
+
+export interface Genre {
+  text: string;
+  number: number;
+  percentage: number | undefined;
+}

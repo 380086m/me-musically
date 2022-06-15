@@ -66,9 +66,23 @@ export const getAlbums = (limit: number) => {
   return albums;
 };
 
-export const getGenres = (limit: number) => {
-  const genres = JSON.parse(localStorage.getItem("mm_genres")!);
-  return genres;
+export const getGenres = async (limit: number) => {
+  const genres = await requestGenres();
+  const genresCount = genres.reduce((acc, genre) => {
+    if (acc[genre]) {
+      acc[genre].number++;
+    } else {
+      acc[genre] = { number: 1 };
+    }
+    acc[genre].percentage = (acc[genre].number / genres.length) * 100;
+    return acc;
+  }, {} as { [key: string]: { number: number; percentage?: number } });
+  const mappedGenres = Object.keys(genresCount).map((genre) => ({
+    text: genre,
+    number: genresCount[genre].number,
+    percentage: genresCount[genre].percentage,
+  }));
+  return mappedGenres;
 };
 
 export const getAlbumsAndArtistsImages = async () => {

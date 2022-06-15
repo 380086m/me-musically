@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Album, Artist, Track, User } from "../../api/types";
+import { Album, Artist, Genre, Track, User } from "../../api/types";
 import {
   getAlbums,
-  getAlbumsAndArtistsImages,
   getArtists,
   getGenres,
   getTracks,
@@ -19,7 +18,7 @@ function Me() {
     longTermTracks: [] as Track[],
     shortTermTracks: [] as Track[],
     topAlbums: [] as Album[],
-    topGenres: [] as string[],
+    topGenres: [] as Genre[],
     user: {} as User,
   });
 
@@ -30,7 +29,7 @@ function Me() {
       longTermTracks: getTracks("long_term"),
       shortTermTracks: getTracks("short_term"),
       topAlbums: getAlbums(3),
-      topGenres: getGenres(5),
+      topGenres: await getGenres(5),
       user: await getUser(),
     });
   };
@@ -62,33 +61,33 @@ function Me() {
                   {/* I'm <ItemText text={data.user.display_name} />. */}I
                   listen to{" "}
                   <ItemText
-                    text={data.topGenres[0]}
-                    href={`https://open.spotify.com/search/${data.topGenres}`}
+                    text={data.topGenres[0].text}
+                    href={`https://open.spotify.com/search/${data.topGenres[0].text}`}
                   />
                   ,{" "}
                   <ItemText
-                    text={data.topGenres[1]}
-                    href={`https://open.spotify.com/search/${data.topGenres[1]}`}
+                    text={data.topGenres[1].text}
+                    href={`https://open.spotify.com/search/${data.topGenres[1].text}`}
                   />{" "}
                   and{" "}
                   <ItemText
-                    text={data.topGenres[2]}
-                    href={`https://open.spotify.com/search/${data.topGenres[2]}`}
+                    text={data.topGenres[2].text}
+                    href={`https://open.spotify.com/search/${data.topGenres[2].text}`}
                   />
                   . But also like to listen to{" "}
                   <ItemText
-                    text={data.topGenres[3]}
-                    href={`https://open.spotify.com/search/${data.topGenres[3]}`}
+                    text={data.topGenres[3].text}
+                    href={`https://open.spotify.com/search/${data.topGenres[3].text}`}
                   />
                   ,{" "}
                   <ItemText
-                    text={data.topGenres[4]}
-                    href={`https://open.spotify.com/search/${data.topGenres[4]}`}
+                    text={data.topGenres[4].text}
+                    href={`https://open.spotify.com/search/${data.topGenres[4].text}`}
                   />{" "}
                   and{" "}
                   <ItemText
-                    text={data.topGenres[5]}
-                    href={`https://open.spotify.com/search/${data.topGenres[5]}`}
+                    text={data.topGenres[5].text}
+                    href={`https://open.spotify.com/search/${data.topGenres[5].text}`}
                   />
                   .
                 </p>
