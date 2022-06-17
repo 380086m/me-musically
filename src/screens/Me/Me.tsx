@@ -57,7 +57,7 @@ function Me() {
                 <h4 className="summary-header">
                   This is <span>me</span>, musically <small>(kind of)</small>{" "}
                 </h4>
-                <p>
+                <div className="paragraph">
                   {/* I'm <ItemText text={data.user.display_name} />. */}I
                   listen to{" "}
                   <ItemText
@@ -90,8 +90,9 @@ function Me() {
                     href={`https://open.spotify.com/search/${data.topGenres[5].text}`}
                   />
                   .
-                </p>
-                <p>
+                </div>
+                <div className="paragraph">
+                  {" "}
                   My favorite artists are{" "}
                   <ItemText
                     text={data.longTermArtists[0].name}
@@ -111,8 +112,9 @@ function Me() {
                     href={data.longTermArtists[2].external_urls.spotify}
                   />
                   .
-                </p>
-                <p>
+                </div>
+                <div className="paragraph">
+                  {" "}
                   Some of my favorite albums are{" "}
                   <ItemText
                     text={data.topAlbums[0].name}
@@ -131,8 +133,9 @@ function Me() {
                     imageUrl={data.topAlbums[2].images[0].url}
                     href={data.topAlbums[2].external_urls.spotify}
                   />
-                </p>
-                <p>
+                </div>
+                <div className="paragraph">
+                  {" "}
                   Recently I'm listening to{" "}
                   <ItemText
                     text={data.shortTermArtists[0].name}
@@ -165,7 +168,7 @@ function Me() {
                     }
                   />
                   .{" "}
-                </p>
+                </div>
               </>
             )}
         </div>
