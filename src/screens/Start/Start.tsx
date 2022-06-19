@@ -14,7 +14,7 @@ function Start() {
         </div>
         <button className="primary-button" onClick={() => auth.requestAuth()}>
           Start with
-          <img src={spotifyBrand} width="70px" />
+          <img src={spotifyBrand} width="70px" alt="Spotify logo" />
         </button>
         <div className="disclaimer">
           When accessing with Spotify, your username, artists and most listened

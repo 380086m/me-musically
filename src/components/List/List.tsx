@@ -14,6 +14,7 @@ function List(props: ListProps) {
             <a
               href={item.href}
               target="_blank"
+              rel="noreferrer"
               className="list__item"
               key={index}
             >
@@ -23,6 +24,7 @@ function List(props: ListProps) {
                     {item.imageUrl ? (
                       <img
                         src={item.imageUrl}
+                        alt={item.text}
                         // style={
                         //   props.shape === "square"
                         //     ? { borderRadius: "4px" }
@@ -45,7 +47,7 @@ function List(props: ListProps) {
                   </div>
                 </div>
                 <div className="spotify-logo">
-                  <img src={spotifyIso} alt="" width={25} />
+                  <img src={spotifyIso} alt="Spotify" width={25} />
                 </div>
               </div>
             </a>

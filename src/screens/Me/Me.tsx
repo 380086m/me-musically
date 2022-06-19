@@ -34,11 +34,6 @@ function Me() {
     });
   };
 
-  const disconnect = () => {
-    localStorage.clear();
-    window.location.replace("/");
-  };
-
   useEffect(() => {
     getData();
     setRandomBackground();

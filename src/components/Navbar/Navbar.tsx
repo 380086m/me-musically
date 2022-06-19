@@ -5,7 +5,7 @@ import "./Navbar.sass";
 
 function Navbar() {
   const [routeIndex, setRouteIndex] = React.useState(0);
-  const [location, setLocation] = React.useState(useLocation());
+  const [location] = React.useState(useLocation());
 
   const disconnect = () => {
     if (window.confirm("Are you sure you want to disconnect?")) {
@@ -40,7 +40,7 @@ function Navbar() {
         setRouteIndex(index);
       }
     });
-  }, []);
+  });
 
   const routes = [
     {
@@ -85,7 +85,7 @@ function Navbar() {
         )}
         <div className="github">
           <a href="https://github.com/380086m/me-musically">
-            <img src={githubLogo} style={{ width: "35px" }} />
+            <img src={githubLogo} style={{ width: "35px" }} alt="Github" />
           </a>
         </div>
         {!["/", "/redirect"].includes(location.pathname) &&

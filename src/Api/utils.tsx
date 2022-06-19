@@ -10,7 +10,7 @@ export const requestResources = async () => {
     saveDataOnLocalStorage("user", user);
     window.dispatchEvent(new CustomEvent("mm_user_ready"));
   });
-  await getTopTracks(15, "long_term").then((tracks) => {
+  await getTopTracks(30, "long_term").then((tracks) => {
     saveDataOnLocalStorage("long_term_tracks", tracks);
   });
   await getTopTracks(15, "medium_term").then((tracks) => {
@@ -62,12 +62,12 @@ export const getArtists = (term: string) => {
 };
 
 export const getAlbums = (limit: number) => {
-  const albums = JSON.parse(localStorage.getItem("mm_albums")!);
+  const albums = JSON.parse(localStorage.getItem("mm_albums") || "[]");
   return albums;
 };
 
 export const getGenres = async (limit: number) => {
-  const genres = await requestGenres();
+  const genres: string[] = JSON.parse(localStorage.getItem("mm_genres")!);
   const genresCount = genres.reduce((acc, genre) => {
     if (acc[genre]) {
       acc[genre].number++;
@@ -109,13 +109,32 @@ const requestGenres = async () => {
   return genres;
 };
 
-const requestAlbums = async (limit: number) => {
-  let topAlbums = [] as Album[];
-  const tracks = getTracks("long_term").slice(0, limit);
-  for (let i = 0; i < tracks.length; i++) {
-    const track = tracks[i];
-    const album = await getAlbum(track.album.id);
-    topAlbums.push(album);
+export const requestAlbums = async (limit: number) => {
+  const topTracks: Track[] = JSON.parse(
+    localStorage.getItem("mm_long_term_tracks")!
+  );
+  const albumsCount = topTracks.reduce((acc, track) => {
+    if (acc[track.album.name]) {
+      acc[track.album.name].count!++;
+    } else {
+      acc[track.album.name] = {
+        count: 1,
+        id: track.album.id,
+      };
+    }
+    return acc;
+  }, {} as { [key: string]: { count: number; id: string } });
+  const mappedAlbums = Object.keys(albumsCount).map((album) => {
+    return albumsCount[album];
+  });
+  mappedAlbums.sort((a, b) => {
+    return b.count - a.count;
+  });
+  const albums = [] as Album[];
+  for (let i = 0; i < mappedAlbums.length; i++) {
+    const element = mappedAlbums[i];
+    const album = await getAlbum(element.id);
+    albums.push(album);
   }
-  return topAlbums;
+  return albums.slice(0, limit);
 };

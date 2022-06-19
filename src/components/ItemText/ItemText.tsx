@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./ItemText.sass";
 import { ItemTextProps } from "./types";
 import spotifyIso from "../../assets/spotify-iso.png";
@@ -10,7 +10,7 @@ function ItemText(props: ItemTextProps) {
 
   return (
     <>
-      <a href={props.href} target="_blank">
+      <a href={props.href} target="_blank" rel="noreferrer">
         <div className="item-text-container">
           <span
             className="item-text"
@@ -20,10 +20,12 @@ function ItemText(props: ItemTextProps) {
                 colors[Math.floor(1 + Math.random() * (colors.length - 1 + 1))],
             }}
           >
-            <img className="spotify-logo" src={spotifyIso} alt="" />
+            <img className="spotify-logo" src={spotifyIso} alt="Spotify" />
             {props.text}
             {""}
-            {props.imageUrl && <img className="cover" src={props.imageUrl} />}
+            {props.imageUrl && (
+              <img className="cover" src={props.imageUrl} alt={props.text} />
+            )}
           </span>
         </div>
       </a>

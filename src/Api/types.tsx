@@ -49,6 +49,7 @@ export interface Track {
 }
 
 export interface Album {
+  count: number;
   album_type: string;
   artists: Artist[];
   external_urls: {
