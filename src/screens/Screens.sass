@@ -101,5 +101,10 @@ small
   padding-top: .5em
   padding-bottom: .5em
   background-color: #1f1f1f
-  div.display-on-screenshot
-    display: unset
+  .display-on-screenshot
+    &.block
+      display: block
+    &.flex
+      display: flex
+  .hide-on-screenshot
+    display: none

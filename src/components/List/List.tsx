@@ -46,7 +46,7 @@ function List(props: ListProps) {
                     {item.small && <small>{item.small}</small>}
                   </div>
                 </div>
-                <div className="spotify-logo">
+                <div className="spotify-logo hide-on-screenshot">
                   <img src={spotifyIso} alt="Spotify" width={25} />
                 </div>
               </div>

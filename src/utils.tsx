@@ -18,4 +18,5 @@ export const takeScreenshot = async (node: HTMLElement) => {
   img.src = dataUrl;
   document.body.appendChild(img);
   node.classList.remove("screenshot");
+  return dataUrl;
 };

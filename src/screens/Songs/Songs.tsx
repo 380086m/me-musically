@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Track } from "../../api/types";
 import { getTracks } from "../../api/utils";
+import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
-import { setRandomBackground } from "../../utils";
+import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
+import { setRandomBackground, takeScreenshot } from "../../utils";
 import "../Screens.sass";
 
 function Songs() {
@@ -52,17 +54,49 @@ function Songs() {
   return (
     <>
       <h3 style={{ textAlign: "center" }}>My most listened songs</h3>
-      <span className="time-header">
-        Recently
-        <small> last 4 weeks aprox</small>
-      </span>
-      <List items={tracks.shortTerm} />
-      <span className="time-header">
-        For a while now<small> last 6 months aprox</small>
-      </span>
-      <List items={tracks.mediumTerms} />
-      <span className="time-header">Of all time</span>
-      <List items={tracks.longTerm} />
+      <div className="short">
+        <h3
+          className="hide display-on-screenshot block"
+          style={{ textAlign: "center" }}
+        >
+          My most listened songs
+        </h3>
+        <span className="time-header">
+          Recently
+          <small> last 4 weeks aprox</small>
+          <DownloadButton selector=".short" />
+        </span>
+        <List items={tracks.shortTerm} />
+        <ScreenshotFooter />
+      </div>
+      <div className="medium">
+        <h3
+          className="hide display-on-screenshot block"
+          style={{ textAlign: "center" }}
+        >
+          My most listened songs
+        </h3>
+        <span className="time-header">
+          For a while now<small> last 6 months aprox</small>
+          <DownloadButton selector=".medium" />
+        </span>
+        <List items={tracks.mediumTerms} />
+        <ScreenshotFooter />
+      </div>
+      <div className="long">
+        <h3
+          className="hide display-on-screenshot block"
+          style={{ textAlign: "center" }}
+        >
+          My most listened songs
+        </h3>
+        <span className="time-header">
+          Of all time
+          <DownloadButton selector=".long" />
+        </span>
+        <List items={tracks.longTerm} />
+        <ScreenshotFooter />
+      </div>
     </>
   );
 }
