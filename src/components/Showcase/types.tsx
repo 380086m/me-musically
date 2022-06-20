@@ -1,6 +1,10 @@
+import { ReactComponentElement } from "react";
+import List from "../../components/List/List";
+
 export interface ShowcaseProps {
+  screenshotHeader?: string;
   header?: string;
-  images?: string[];
-  route?: string;
-  hasImages?: boolean;
+  smallHeader?: string;
+  selectorToDownload?: string;
+  list: ReactComponentElement<typeof List>;
 }
