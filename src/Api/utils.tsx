@@ -10,7 +10,7 @@ export const requestResources = async () => {
     saveDataOnLocalStorage("user", user);
     window.dispatchEvent(new CustomEvent("mm_user_ready"));
   });
-  await getTopTracks(30, "long_term").then((tracks) => {
+  await getTopTracks(20, "long_term").then((tracks) => {
     saveDataOnLocalStorage("long_term_tracks", tracks);
   });
   await getTopTracks(15, "medium_term").then((tracks) => {
@@ -23,7 +23,7 @@ export const requestResources = async () => {
   await getTopArtists(15, "long_term").then((artists) => {
     saveDataOnLocalStorage("long_term_artists", artists);
   });
-  await getTopArtists(30, "medium_term").then((artists) => {
+  await getTopArtists(20, "medium_term").then((artists) => {
     saveDataOnLocalStorage("medium_term_artists", artists);
   });
   await getTopArtists(15, "short_term").then((artists) => {
