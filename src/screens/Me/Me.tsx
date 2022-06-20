@@ -7,7 +7,9 @@ import {
   getTracks,
   getUser,
 } from "../../api/utils";
+import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import ItemText from "../../components/ItemText/ItemText";
+import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
 import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
@@ -50,7 +52,11 @@ function Me() {
             data.topAlbums.length > 0 && (
               <>
                 <h4 className="summary-header">
-                  This is <span>me</span>, musically <small>(kind of)</small>{" "}
+                  This is <span className="me">me</span>, musically{" "}
+                  <small>(kind of)</small>{" "}
+                  <span>
+                    <DownloadButton selector=".summary-container" />
+                  </span>
                 </h4>
                 <div className="paragraph">
                   {/* I'm <ItemText text={data.user.display_name} />. */}I
@@ -167,6 +173,7 @@ function Me() {
               </>
             )}
         </div>
+        <ScreenshotFooter />
       </div>
     </>
   );

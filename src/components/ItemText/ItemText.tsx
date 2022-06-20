@@ -20,7 +20,11 @@ function ItemText(props: ItemTextProps) {
                 colors[Math.floor(1 + Math.random() * (colors.length - 1 + 1))],
             }}
           >
-            <img className="spotify-logo" src={spotifyIso} alt="Spotify" />
+            <img
+              className="spotify-logo hide-on-screenshot"
+              src={spotifyIso}
+              alt="Spotify"
+            />
             {props.text}
             {""}
             {props.imageUrl && (
