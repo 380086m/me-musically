@@ -127,8 +127,8 @@ function Me() {
                     text={data.topAlbums[1].name}
                     imageUrl={data.topAlbums[1].images[0].url}
                     href={data.topAlbums[1].external_urls.spotify}
-                  />{" "}
-                  and{" "}
+                  />
+                  {" " + getText("meText12") + " "}
                   <ItemText
                     text={data.topAlbums[2].name}
                     imageUrl={data.topAlbums[2].images[0].url}

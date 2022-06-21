@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import githubLogo from "../../assets/github.png";
+import madeWithReact from "../../assets/made-with-react.png";
 import { getText } from "../../translate/texts";
 import "./Navbar.sass";
 
@@ -71,34 +72,28 @@ function Navbar() {
       <div className="navbar">
         {!["/", "/redirect"].includes(location.pathname) &&
         routes[routeIndex - 1] ? (
-          <div
-            className="arrow left"
+          <button
+            style={{ minWidth: "100px" }}
+            className="primary-button left"
             onClick={() => {
               handleArrowClick(routeIndex - 1);
             }}
           >
-            {"< " + routes[routeIndex - 1].name}
-          </div>
+            {routes[routeIndex - 1].name}
+          </button>
         ) : (
-          <div className="left">
-            <div>{disconnectButton()}</div>
-          </div>
+          <div>{disconnectButton()}</div>
         )}
-        <div className="github">
-          <a href="https://github.com/380086m/me-musically">
-            <img src={githubLogo} style={{ width: "35px" }} alt="Github" />
-          </a>
-        </div>
         {!["/", "/redirect"].includes(location.pathname) &&
         routes[routeIndex + 1] ? (
-          <div
-            className="arrow right"
+          <button
+            className="primary-button right"
             onClick={() => {
               handleArrowClick(routeIndex + 1);
             }}
           >
-            {routes[routeIndex + 1]?.name + " >"}
-          </div>
+            {routes[routeIndex + 1]?.name}
+          </button>
         ) : (
           <div></div>
         )}

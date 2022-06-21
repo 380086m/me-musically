@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { requestResources } from "../api/utils";
 import Loader from "../components/Loader/Loader";
+import { getText } from "../translate/texts";
 import { Auth } from "./Auth";
 
 function AuthRedirect() {
@@ -18,19 +19,19 @@ function AuthRedirect() {
   const [loaderMessage, setLoaderMessage] = useState("");
 
   const showLoadMessages = () => {
-    setLoaderMessage("Checking your tracks...");
+    setLoaderMessage(getText("loaderText1"));
     window.addEventListener("mm_tracks_ready", () => {
-      setLoaderMessage("I love that song too!");
+      setLoaderMessage(getText("loaderText2"));
       setTimeout(() => {
-        setLoaderMessage("Looking for your favorite artists...");
+        setLoaderMessage(getText("loaderText3"));
       }, 1500);
     });
     window.addEventListener("mm_artists_ready", () => {
-      setLoaderMessage("So these are your favorite albums");
+      setLoaderMessage(getText("loaderText4"));
       setTimeout(() => {
-        setLoaderMessage("Nice");
+        setLoaderMessage(getText("loaderText5"));
         setTimeout(() => {
-          setLoaderMessage("Here we go!");
+          setLoaderMessage(getText("loaderText6"));
         }, 2000);
       }, 1000);
     });

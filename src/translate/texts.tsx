@@ -1,3 +1,12 @@
+interface Languages {
+  en: {
+    [key: string]: string;
+  };
+  es: {
+    [key: string]: string;
+  };
+}
+
 interface Texts {
   meRouteName: string;
   artistsRouteName: string;
@@ -101,7 +110,7 @@ const texts = {
     songsHeader: "Mis canciones más escuchadas",
     startDescription:
       "me-musically te muestra lo que escuchas en Spotify para que puedas compartirlo.",
-    startButton: "Vamos!",
+    startButton: "Comenzar",
     startDisclaimer:
       "Cuando accedes con Spotify, compartes con la aplicación tu nombre de usuario y tus canciones y artistas más escuchados. Esta información no se guardará en ningún lugar excepto en tu dispositivo ni será enviada a ninguna parte ;)",
     shortTermText: "Recientemente",
@@ -118,8 +127,16 @@ const texts = {
   } as Texts,
 };
 
-const language = "es";
-
 export const getText = (key: keyof Texts): string => {
-  return texts[language][key];
+  const userLocale =
+    navigator.languages && navigator.languages.length
+      ? navigator.languages[0]
+      : navigator.language;
+
+  const locale = userLocale.split("-")[0] as keyof Languages;
+  //check if is supported
+  if (locale in texts) {
+    return texts[locale][key];
+  }
+  return texts.en[key];
 };
