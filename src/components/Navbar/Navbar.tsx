@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import githubLogo from "../../assets/github.png";
-import madeWithReact from "../../assets/made-with-react.png";
 import { getText } from "../../translate/texts";
 import "./Navbar.sass";
 

@@ -6,7 +6,10 @@ import { LoaderProps } from "./types";
 function Loader(props: LoaderProps) {
   return (
     <>
-      <div className="loader-container">
+      <div
+        id="loader"
+        className={"loader-container" + (props.hidden ? " hidden" : "")}
+      >
         <div className="loader">
           <img src={loader} alt="loader" />
           <div className="-message">{props.message}</div>

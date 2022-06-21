@@ -2,12 +2,13 @@ import React from "react";
 import "./DownloadButton.sass";
 import downloadButton from "../../assets/download.png";
 import { DownloadButtonProps } from "./types";
-import { takeScreenshot } from "../../utils";
+import { hideLoader, showLoader, takeScreenshot } from "../../utils";
 
-const takeScreenshotOfElement = async (selector: string) => {
+const takeScreenshotOfElement = async (selector: string, name: string) => {
+  await showLoader();
   const element = document.querySelector(selector) as HTMLElement;
-  const screenshot = await takeScreenshot(element!);
-  return screenshot;
+  await takeScreenshot(element!, name);
+  await hideLoader();
 };
 
 function DownloadButton(props: DownloadButtonProps) {
@@ -15,7 +16,7 @@ function DownloadButton(props: DownloadButtonProps) {
     <button
       className="download-button hide-on-screenshot"
       onClick={() => {
-        takeScreenshotOfElement(props.selector);
+        takeScreenshotOfElement(props.selector, props.name);
       }}
     >
       <img src={downloadButton} width={25} alt="" />

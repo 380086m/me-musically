@@ -9,6 +9,7 @@ import {
 } from "../../api/utils";
 import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import ItemText from "../../components/ItemText/ItemText";
+import Loader from "../../components/Loader/Loader";
 import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
 import { getText } from "../../translate/texts";
 import { setRandomBackground } from "../../utils";
@@ -58,7 +59,10 @@ function Me() {
                   {" " + getText("meText3")}{" "}
                   <small>({getText("meText4")})</small>{" "}
                   <span>
-                    <DownloadButton selector=".summary-container" />
+                    <DownloadButton
+                      selector=".summary-container"
+                      name={getText("meText2") + " " + getText("meText3")}
+                    />
                   </span>
                 </h4>
                 <div className="paragraph">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { ShowcaseProps } from "./types";
 import "./Showcase.sass";
 import DownloadButton from "../DownloadButton/DownloadButton";
@@ -19,7 +19,10 @@ function Showcase(props: ShowcaseProps) {
         {props.header}
         {props.smallHeader && <small>{" " + props.smallHeader}</small>}
         {props.selectorToDownload && (
-          <DownloadButton selector={props.selectorToDownload} />
+          <DownloadButton
+            selector={props.selectorToDownload}
+            name={props.screenshotHeader || "me-musically"}
+          />
         )}
       </span>
       {props.list}

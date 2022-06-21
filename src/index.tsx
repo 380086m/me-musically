@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.sass";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Loader from "./components/Loader/Loader";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

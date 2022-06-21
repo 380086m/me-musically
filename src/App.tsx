@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.sass";
 import AuthRedirect from "./auth/AuthRedirectScreen";
 import Footer from "./components/Footer/Footer";
+import Loader from "./components/Loader/Loader";
 import Navbar from "./components/Navbar/Navbar";
 import Albums from "./screens/Albums/Albums";
 import Artists from "./screens/Artists/Artists";
@@ -14,6 +15,7 @@ import Start from "./screens/Start/Start";
 function App() {
   return (
     <BrowserRouter>
+      <Loader hidden={true} />
       <Navbar />
       <Routes>
         <Route path="/" element={<Start />}></Route>
