@@ -10,6 +10,7 @@ import {
 import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import ItemText from "../../components/ItemText/ItemText";
 import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
+import { getText } from "../../translate/texts";
 import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
@@ -52,15 +53,16 @@ function Me() {
             data.topAlbums.length > 0 && (
               <>
                 <h4 className="summary-header">
-                  This is <span className="me">me</span>, musically{" "}
-                  <small>(kind of)</small>{" "}
+                  {getText("meText1") + " "}
+                  <span className="me">{getText("meText2")}</span>,
+                  {" " + getText("meText3")}{" "}
+                  <small>({getText("meText4")})</small>{" "}
                   <span>
                     <DownloadButton selector=".summary-container" />
                   </span>
                 </h4>
                 <div className="paragraph">
-                  {/* I'm <ItemText text={data.user.display_name} />. */}I
-                  listen to{" "}
+                  {getText("meText5") + " "}
                   <ItemText
                     text={data.topGenres[0].text}
                     href={`https://open.spotify.com/search/${data.topGenres[0].text}`}
@@ -75,7 +77,7 @@ function Me() {
                     text={data.topGenres[2].text}
                     href={`https://open.spotify.com/search/${data.topGenres[2].text}`}
                   />
-                  . But also like to listen to{" "}
+                  . {" " + getText("meText6") + " "}
                   <ItemText
                     text={data.topGenres[3].text}
                     href={`https://open.spotify.com/search/${data.topGenres[3].text}`}
@@ -84,8 +86,8 @@ function Me() {
                   <ItemText
                     text={data.topGenres[4].text}
                     href={`https://open.spotify.com/search/${data.topGenres[4].text}`}
-                  />{" "}
-                  and{" "}
+                  />
+                  {" " + getText("meText12") + " "}
                   <ItemText
                     text={data.topGenres[5].text}
                     href={`https://open.spotify.com/search/${data.topGenres[5].text}`}
@@ -93,8 +95,7 @@ function Me() {
                   .
                 </div>
                 <div className="paragraph">
-                  {" "}
-                  My favorite artists are{" "}
+                  {" " + getText("meText7") + " "}
                   <ItemText
                     text={data.longTermArtists[0].name}
                     imageUrl={data.longTermArtists[0].images[0].url}
@@ -105,8 +106,8 @@ function Me() {
                     text={data.longTermArtists[1].name}
                     imageUrl={data.longTermArtists[1].images[0].url}
                     href={data.longTermArtists[1].external_urls.spotify}
-                  />{" "}
-                  and{" "}
+                  />
+                  {" " + getText("meText12") + " "}
                   <ItemText
                     text={data.longTermArtists[2].name}
                     imageUrl={data.longTermArtists[2].images[0].url}
@@ -115,8 +116,7 @@ function Me() {
                   .
                 </div>
                 <div className="paragraph">
-                  {" "}
-                  Some of my favorite albums are{" "}
+                  {" " + getText("meText8") + " "}
                   <ItemText
                     text={data.topAlbums[0].name}
                     imageUrl={data.topAlbums[0].images[0].url}
@@ -136,8 +136,7 @@ function Me() {
                   />
                 </div>
                 <div className="paragraph">
-                  {" "}
-                  Recently I'm listening to{" "}
+                  {" " + getText("meText9") + " "}
                   <ItemText
                     text={data.shortTermArtists[0].name}
                     imageUrl={data.shortTermArtists[0].images[0].url}
@@ -148,20 +147,20 @@ function Me() {
                     text={data.shortTermArtists[1].name}
                     imageUrl={data.shortTermArtists[1].images[0].url}
                     href={data.shortTermArtists[1].external_urls.spotify}
-                  />{" "}
-                  and{" "}
+                  />
+                  {" " + getText("meText12") + " "}
                   <ItemText
                     text={data.shortTermArtists[2].name}
                     imageUrl={data.shortTermArtists[2].images[0].url}
                     href={data.shortTermArtists[2].external_urls.spotify}
-                  />{" "}
-                  and right now I'm obsessed with{" "}
+                  />
+                  {" " + getText("meText10") + " "}
                   <ItemText
                     text={data.shortTermTracks[0].name}
                     imageUrl={data.shortTermTracks[0].album.images[0].url}
                     href={data.shortTermTracks[0].external_urls.spotify}
-                  />{" "}
-                  by{" "}
+                  />
+                  {" " + getText("meText11") + " "}
                   <ItemText
                     text={data.shortTermTracks[0].artists[0].name}
                     href={

@@ -38,6 +38,7 @@ function AuthRedirect() {
   useEffect(() => {
     showLoadMessages();
     getResources();
+    // eslint-disable-next-line
   }, []);
 
   return (

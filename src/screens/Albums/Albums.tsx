@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Album } from "../../api/types";
 import { getAlbums } from "../../api/utils";
-import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
-import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
 import Showcase from "../../components/Showcase/Showcase";
+import { getText } from "../../translate/texts";
 import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
@@ -33,7 +32,7 @@ function Albums() {
       <Showcase
         list={<List items={albums} />}
         selectorToDownload=".albums"
-        header="My most listened albums"
+        header={getText("albumsHeader")}
       />
     </div>
   );

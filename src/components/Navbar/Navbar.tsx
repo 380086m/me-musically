@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import githubLogo from "../../assets/github.png";
+import { getText } from "../../translate/texts";
 import "./Navbar.sass";
 
 function Navbar() {
@@ -8,7 +9,7 @@ function Navbar() {
   const [location] = React.useState(useLocation());
 
   const disconnect = () => {
-    if (window.confirm("Are you sure you want to disconnect?")) {
+    if (window.confirm(getText("navbarDisconnectConfirm"))) {
       localStorage.clear();
       window.location.replace("/");
     }
@@ -21,7 +22,7 @@ function Navbar() {
     ) {
       return (
         <button className="primary-button" onClick={disconnect}>
-          Disconnect
+          {getText("navbarDisconnect")}
         </button>
       );
     }
@@ -45,23 +46,23 @@ function Navbar() {
   const routes = [
     {
       path: "/me",
-      name: "me",
+      name: getText("meRouteName"),
     },
     {
       path: "/artists",
-      name: "my artists",
+      name: getText("artistsRouteName"),
     },
     {
       path: "/songs",
-      name: "my songs",
+      name: getText("songsRouteName"),
     },
     {
       path: "/albums",
-      name: "my albums",
+      name: getText("albumsRouteName"),
     },
     {
       path: "/genres",
-      name: "my genres",
+      name: getText("genresRouteName"),
     },
   ];
 

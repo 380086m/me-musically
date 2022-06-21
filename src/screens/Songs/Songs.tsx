@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Track } from "../../api/types";
 import { getTracks } from "../../api/utils";
-import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
-import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
 import Showcase from "../../components/Showcase/Showcase";
+import { getText } from "../../translate/texts";
 import { setRandomBackground, takeScreenshot } from "../../utils";
 import "../Screens.sass";
 
@@ -54,31 +53,31 @@ function Songs() {
 
   return (
     <>
-      <h3 style={{ textAlign: "center" }}>My most listened songs</h3>
+      <h3 style={{ textAlign: "center" }}>{getText("songsHeader")}</h3>
       <div className="short">
         <Showcase
           list={<List items={tracks.shortTerm} />}
-          header="Recently"
-          smallHeader="last 4 weeks"
+          header={getText("shortTermText")}
+          smallHeader={getText("shortTermDescription")}
           selectorToDownload=".short"
-          screenshotHeader="My most listened songs"
+          screenshotHeader={getText("songsHeader")}
         />
       </div>
       <div className="medium">
         <Showcase
           list={<List items={tracks.mediumTerms} />}
-          header="For a while now"
-          smallHeader="last 6 months"
+          header={getText("mediumTermText")}
+          smallHeader={getText("mediumTermDescription")}
           selectorToDownload=".medium"
-          screenshotHeader="My most listened songs"
+          screenshotHeader={getText("songsHeader")}
         />
       </div>
       <div className="long">
         <Showcase
           list={<List items={tracks.longTerm} />}
-          header="Since ever"
+          header={getText("longTermText")}
           selectorToDownload=".long"
-          screenshotHeader="My most listened songs"
+          screenshotHeader={getText("songsHeader")}
         />
       </div>
     </>
