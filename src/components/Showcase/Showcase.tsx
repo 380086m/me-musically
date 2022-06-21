@@ -8,7 +8,7 @@ function Showcase(props: ShowcaseProps) {
   useEffect(() => {}, []);
 
   return (
-    <>
+    <div className="showcase">
       <h3
         className="hide display-on-screenshot block"
         style={{ textAlign: "center" }}
@@ -24,7 +24,7 @@ function Showcase(props: ShowcaseProps) {
       </span>
       {props.list}
       <ScreenshotFooter />
-    </>
+    </div>
   );
 }
 

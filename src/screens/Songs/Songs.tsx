@@ -5,6 +5,7 @@ import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
 import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
+import Showcase from "../../components/Showcase/Showcase";
 import { setRandomBackground, takeScreenshot } from "../../utils";
 import "../Screens.sass";
 
@@ -55,47 +56,30 @@ function Songs() {
     <>
       <h3 style={{ textAlign: "center" }}>My most listened songs</h3>
       <div className="short">
-        <h3
-          className="hide display-on-screenshot block"
-          style={{ textAlign: "center" }}
-        >
-          My most listened songs
-        </h3>
-        <span className="time-header">
-          Recently
-          <small> last 4 weeks aprox</small>
-          <DownloadButton selector=".short" />
-        </span>
-        <List items={tracks.shortTerm} />
-        <ScreenshotFooter />
+        <Showcase
+          list={<List items={tracks.shortTerm} />}
+          header="Recently"
+          smallHeader="last 4 weeks"
+          selectorToDownload=".short"
+          screenshotHeader="My most listened songs"
+        />
       </div>
       <div className="medium">
-        <h3
-          className="hide display-on-screenshot block"
-          style={{ textAlign: "center" }}
-        >
-          My most listened songs
-        </h3>
-        <span className="time-header">
-          For a while now<small> last 6 months aprox</small>
-          <DownloadButton selector=".medium" />
-        </span>
-        <List items={tracks.mediumTerms} />
-        <ScreenshotFooter />
+        <Showcase
+          list={<List items={tracks.mediumTerms} />}
+          header="For a while now"
+          smallHeader="last 6 months"
+          selectorToDownload=".medium"
+          screenshotHeader="My most listened songs"
+        />
       </div>
       <div className="long">
-        <h3
-          className="hide display-on-screenshot block"
-          style={{ textAlign: "center" }}
-        >
-          My most listened songs
-        </h3>
-        <span className="time-header">
-          Of all time
-          <DownloadButton selector=".long" />
-        </span>
-        <List items={tracks.longTerm} />
-        <ScreenshotFooter />
+        <Showcase
+          list={<List items={tracks.longTerm} />}
+          header="Since ever"
+          selectorToDownload=".long"
+          screenshotHeader="My most listened songs"
+        />
       </div>
     </>
   );

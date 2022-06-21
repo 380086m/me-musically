@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { requestResources } from "../api/utils";
 import Loader from "../components/Loader/Loader";
@@ -9,7 +9,6 @@ function AuthRedirect() {
   const auth = Auth.getInstance();
 
   const getResources = async () => {
-    console.log("2");
     auth.requestAccessToken(searchParams.get("code")!).then(async () => {
       await requestResources();
       window.location.replace("/me");

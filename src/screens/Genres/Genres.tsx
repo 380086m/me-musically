@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getGenres } from "../../api/utils";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
+import Showcase from "../../components/Showcase/Showcase";
 import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
@@ -26,8 +27,13 @@ function Genres() {
 
   return (
     <>
-      <h3 style={{ textAlign: "center" }}>My most listened genres</h3>
-      <List items={genres} ordened={true} />
+      <div className="genres">
+        <Showcase
+          list={<List items={genres} ordened={true} />}
+          selectorToDownload=".genres"
+          header="My most listened genres"
+        />
+      </div>
     </>
   );
 }
