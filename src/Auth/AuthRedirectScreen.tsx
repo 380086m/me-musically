@@ -18,6 +18,7 @@ function AuthRedirect() {
   const [loaderMessage, setLoaderMessage] = useState("");
 
   const showLoadMessages = () => {
+    setLoaderMessage("Checking your tracks...");
     window.addEventListener("mm_tracks_ready", () => {
       setLoaderMessage("I love that song too!");
       setTimeout(() => {

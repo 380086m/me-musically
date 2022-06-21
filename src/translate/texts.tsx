@@ -30,9 +30,51 @@ interface Texts {
   longTermText: string;
   shortTermDescription: string;
   mediumTermDescription: string;
+  loaderText1: string;
+  loaderText2: string;
+  loaderText3: string;
+  loaderText4: string;
+  loaderText5: string;
+  loaderText6: string;
 }
 
 const texts = {
+  en: {
+    navbarDisconnect: "Disconnect",
+    navbarDisconnectConfirm: "Are you sure you want to disconnect?",
+    albumsHeader: "My most listened albums",
+    artistsHeader: "My favorite artists",
+    genresHeader: "My favorite genres",
+    meText1: "This is",
+    meText2: "me",
+    meText3: "musically",
+    meText4: "sort of",
+    meText5: "I listen to",
+    meText6: "But also like to listen to",
+    meText7: "My favorite artists are",
+    meText8: "Some of my favorite albums are",
+    meText9: "Recently I'm listening to",
+    meText10: "and right now I'm obsessed with",
+    meText11: "by",
+    meText12: "and",
+    songsHeader: "My most listened songs",
+    startDescription:
+      "me-musically display what you listen to the most on Spotify so you can share it with your friends.",
+    startButton: "Start with",
+    startDisclaimer:
+      "When accessing with Spotify, your username, artists and most listened songs will be read. This data will not be stored anywhere other than on your device or sent anywhere ;)",
+    shortTermText: "Recently",
+    mediumTermText: "From a while ago",
+    longTermText: "From forever",
+    shortTermDescription: "last 4 weeks",
+    mediumTermDescription: "last 6 months",
+    loaderText1: "Checking your tracks...",
+    loaderText2: "I love that song too!",
+    loaderText3: "Looking for your favorite artists...",
+    loaderText4: "So these are your favorite albums",
+    loaderText5: "Nice",
+    loaderText6: "Here we go!",
+  } as Texts,
   es: {
     meRouteName: "yo",
     artistsRouteName: "mis artistas",
@@ -67,36 +109,12 @@ const texts = {
     longTermText: "Desde siempre",
     shortTermDescription: "últimas 4 semanas",
     mediumTermDescription: "últimos 6 meses",
-  } as Texts,
-  en: {
-    navbarDisconnect: "Disconnect",
-    navbarDisconnectConfirm: "Are you sure you want to disconnect?",
-    albumsHeader: "My most listened albums",
-    artistsHeader: "My favorite artists",
-    genresHeader: "My favorite genres",
-    meText1: "This is",
-    meText2: "me",
-    meText3: "musically",
-    meText4: "sort of",
-    meText5: "I listen to",
-    meText6: "But also like to listen to",
-    meText7: "My favorite artists are",
-    meText8: "Some of my favorite albums are",
-    meText9: "Recently I'm listening to",
-    meText10: "and right now I'm obsessed with",
-    meText11: "by",
-    meText12: "and",
-    songsHeader: "My most listened songs",
-    startDescription:
-      "me-musically display what you listen to the most on Spotify so you can share it with your friends.",
-    startButton: "Start with",
-    startDisclaimer:
-      "When accessing with Spotify, your username, artists and most listened songs will be read. This data will not be stored anywhere other than on your device or sent anywhere ;)",
-    shortTermText: "Recently",
-    mediumTermText: "From a while ago",
-    longTermText: "From forever",
-    shortTermDescription: "last 4 weeks",
-    mediumTermDescription: "last 6 months",
+    loaderText1: "Revisando tus canciones...",
+    loaderText2: "Me encanta esa canción!",
+    loaderText3: "Buscando tus artistas favoritos...",
+    loaderText4: "Así que estos son tus álbumes favoritos",
+    loaderText5: "¡Genial!",
+    loaderText6: "¡Empezamos!",
   } as Texts,
 };
 
