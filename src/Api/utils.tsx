@@ -85,10 +85,10 @@ export const getGenres = async (limit: number) => {
   return mappedGenres;
 };
 
-export const getAlbumsAndArtistsImages = async () => {
+export const getAlbumsAndArtistsImages = async (limit: number = 10) => {
   let images = [] as string[];
-  const albums = getAlbums(10);
-  const artists = getArtists("medium_term").slice(0, 10);
+  const albums = getAlbums(limit);
+  const artists = getArtists("medium_term").slice(0, limit);
   albums.forEach((album: Album) => {
     images.push(album.images[0].url);
   });

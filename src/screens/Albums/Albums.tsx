@@ -5,7 +5,6 @@ import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
 import Showcase from "../../components/Showcase/Showcase";
 import { getText } from "../../translate/texts";
-import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
 function Albums() {
@@ -24,7 +23,6 @@ function Albums() {
 
   useEffect(() => {
     getData();
-    setRandomBackground();
   }, []);
 
   return (

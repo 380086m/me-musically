@@ -12,7 +12,7 @@ function Loader(props: LoaderProps) {
       >
         <div className="loader">
           <img src={loader} alt="loader" />
-          <div className="-message">{props.message}</div>
+          <div className="message">{props.message}</div>
         </div>
       </div>
     </>

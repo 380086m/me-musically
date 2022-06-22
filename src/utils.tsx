@@ -1,12 +1,13 @@
 import { getAlbumsAndArtistsImages } from "./api/utils";
 import * as htmlToImage from "html-to-image";
-import Loader from "./components/Loader/Loader";
 
-export const setRandomBackground = async () => {
-  const images = await getAlbumsAndArtistsImages();
-  document.body.style.backgroundImage = `url(${
-    images[Math.floor(Math.random() * images.length)]
-  })`;
+export const getRandomBackground = async () => {
+  const images = await getAlbumsAndArtistsImages(3);
+  return images[Math.floor(Math.random() * images.length)];
+};
+
+export const setDocumentBackground = async () => {
+  document.body.style.backgroundImage = `url(${await getRandomBackground()})`;
   document.body.style.backgroundBlendMode = "overlay";
   document.body.style.backgroundAttachment = "fixed";
   document.body.style.backgroundSize = "cover";
@@ -14,6 +15,8 @@ export const setRandomBackground = async () => {
 
 export const takeScreenshot = async (node: HTMLElement, name: string) => {
   node.classList.add("screenshot");
+  node.style.backgroundImage = `url(${await getRandomBackground()})`;
+  node.style.backgroundBlendMode = "multiply";
   const dataUrl = await htmlToImage.toPng(node!);
   const img = new Image();
   img.src = dataUrl;
@@ -23,19 +26,19 @@ export const takeScreenshot = async (node: HTMLElement, name: string) => {
   a.download = name;
   a.click();
   a.remove();
+  node.style.backgroundImage = "unset";
+  node.style.backgroundBlendMode = "unset";
   node.classList.remove("screenshot");
 
   return dataUrl;
 };
 
 export const showLoader = () => {
-  console.log("s");
-  const laoder = document.getElementById("loader") as HTMLElement;
-  laoder.classList.remove("hidden");
-  console.log("f");
+  const loader = document.getElementById("loader") as HTMLElement;
+  loader.classList.remove("hidden");
 };
 
 export const hideLoader = () => {
-  const laoder = document.getElementById("loader") as HTMLElement;
-  laoder.classList.add("hidden");
+  const loader = document.getElementById("loader") as HTMLElement;
+  loader.classList.add("hidden");
 };

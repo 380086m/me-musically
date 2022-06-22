@@ -109,7 +109,7 @@ const texts = {
     meText12: "y",
     songsHeader: "Mis canciones más escuchadas",
     startDescription:
-      "me-musically te muestra lo que escuchas en Spotify para que puedas compartirlo.",
+      "me-musically te muestra lo que más escuchas en Spotify para que puedas compartirlo.",
     startButton: "Comenzar",
     startDisclaimer:
       "Cuando accedes con Spotify, compartes con la aplicación tu nombre de usuario y tus canciones y artistas más escuchados. Esta información no se guardará en ningún lugar excepto en tu dispositivo ni será enviada a ninguna parte ;)",
@@ -119,10 +119,10 @@ const texts = {
     shortTermDescription: "últimas 4 semanas",
     mediumTermDescription: "últimos 6 meses",
     loaderText1: "Revisando tus canciones...",
-    loaderText2: "Me encanta esa canción!",
+    loaderText2: "¡Me encanta esa canción!",
     loaderText3: "Buscando tus artistas favoritos...",
     loaderText4: "Así que estos son tus álbumes favoritos",
-    loaderText5: "¡Genial!",
+    loaderText5: "Genial",
     loaderText6: "¡Empezamos!",
   } as Texts,
 };

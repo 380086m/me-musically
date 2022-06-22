@@ -9,10 +9,8 @@ import {
 } from "../../api/utils";
 import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import ItemText from "../../components/ItemText/ItemText";
-import Loader from "../../components/Loader/Loader";
 import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
 import { getText } from "../../translate/texts";
-import { setRandomBackground } from "../../utils";
 import "../Screens.sass";
 
 function Me() {
@@ -40,7 +38,6 @@ function Me() {
 
   useEffect(() => {
     getData();
-    setRandomBackground();
   }, []);
 
   return (
