@@ -117,7 +117,7 @@ const texts = {
       "me-musically te muestra lo que más escuchas en Spotify para que puedas compartirlo.",
     startButton: "Comenzar",
     startDisclaimer:
-      "Cuando accedes con Spotify, compartes con la aplicación tu nombre de usuario y tus canciones y artistas más escuchados. Esta información no se guardará en ningún lugar excepto en tu dispositivo ni será enviada a ninguna parte ;)",
+      "Cuando accedes con Spotify, compartes con la aplicación tu nombre de usuario y tus canciones y artistas más escuchados. Esta información no se guardará en ningún lugar más que en tu dispositivo ni será enviada a ninguna parte ;)",
     shortTermText: "Recientemente",
     mediumTermText: "Desde hace un tiempo",
     longTermText: "Desde siempre",
