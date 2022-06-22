@@ -1,5 +1,5 @@
 import { getAlbum, getTopArtists, getTopTracks, getUserData } from "./Api";
-import { Album, Artist, Track } from "./types";
+import { Album, Artist, Genre, Track, User } from "./types";
 
 const saveDataOnLocalStorage = (name: string, data: any) => {
   localStorage.setItem("mm_" + name, JSON.stringify(data));
@@ -39,7 +39,7 @@ export const requestResources = async () => {
   });
 };
 
-export const getUser = async () => {
+export const getUser = async (): Promise<User> => {
   const user = localStorage.getItem("mm_user");
   if (user) {
     return JSON.parse(user);
@@ -47,26 +47,26 @@ export const getUser = async () => {
   return await getUserData();
 };
 
-export const getTracks = (term: string) => {
+export const getTracks = (term: string): Track[] => {
   const tracks = JSON.parse(
     localStorage.getItem("mm_" + term + "_tracks") || "[]"
   );
   return tracks;
 };
 
-export const getArtists = (term: string) => {
+export const getArtists = (term: string): Artist[] => {
   const artists = JSON.parse(
     localStorage.getItem("mm_" + term + "_artists") || "[]"
   );
   return artists;
 };
 
-export const getAlbums = (limit: number) => {
+export const getAlbums = (limit: number): Album[] => {
   const albums = JSON.parse(localStorage.getItem("mm_albums") || "[]");
   return albums;
 };
 
-export const getGenres = async (limit: number) => {
+export const getGenres = async (limit: number): Promise<Genre[]> => {
   const genres: string[] = JSON.parse(localStorage.getItem("mm_genres")!);
   const genresCount = genres.reduce((acc, genre) => {
     if (acc[genre]) {
@@ -85,7 +85,9 @@ export const getGenres = async (limit: number) => {
   return mappedGenres;
 };
 
-export const getAlbumsAndArtistsImages = async (limit: number = 10) => {
+export const getAlbumsAndArtistsImages = async (
+  limit: number = 10
+): Promise<string[]> => {
   let images = [] as string[];
   const albums = getAlbums(limit);
   const artists = getArtists("medium_term").slice(0, limit);
@@ -98,7 +100,7 @@ export const getAlbumsAndArtistsImages = async (limit: number = 10) => {
   return images;
 };
 
-const requestGenres = async () => {
+const requestGenres = async (): Promise<string[]> => {
   const artists: Artist[] = getArtists("medium_term");
   const genres = [] as string[];
   artists.forEach((artist: Artist) => {
@@ -109,7 +111,7 @@ const requestGenres = async () => {
   return genres;
 };
 
-export const requestAlbums = async (limit: number) => {
+export const requestAlbums = async (limit: number): Promise<Album[]> => {
   const topTracks: Track[] = JSON.parse(
     localStorage.getItem("mm_long_term_tracks")!
   );

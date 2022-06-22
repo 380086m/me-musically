@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Album, Artist, Genre, Track, User } from "../../api/types";
-import {
-  getAlbums,
-  getArtists,
-  getGenres,
-  getTracks,
-  getUser,
-} from "../../api/utils";
+import { Album, Artist, Genre, Track } from "../../api/types";
+import { getAlbums, getArtists, getGenres, getTracks } from "../../api/utils";
 import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import ItemText from "../../components/ItemText/ItemText";
 import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
@@ -21,7 +15,6 @@ function Me() {
     shortTermTracks: [] as Track[],
     topAlbums: [] as Album[],
     topGenres: [] as Genre[],
-    user: {} as User,
   });
 
   const getData = async () => {
@@ -32,7 +25,6 @@ function Me() {
       shortTermTracks: getTracks("short_term"),
       topAlbums: getAlbums(3),
       topGenres: await getGenres(5),
-      user: await getUser(),
     });
   };
 
