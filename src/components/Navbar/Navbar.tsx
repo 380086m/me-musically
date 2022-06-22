@@ -20,17 +20,10 @@ function Navbar() {
       window.location.pathname !== "/"
     ) {
       return (
-        <button className="primary-button" onClick={disconnect}>
+        <button className="disconnect-button" onClick={disconnect}>
           {getText("navbarDisconnect")}
         </button>
       );
-    }
-  };
-
-  const handleArrowClick = (index: number) => {
-    if (index >= 0 && index < routes.length) {
-      setRouteIndex(index);
-      window.location.replace(routes[index].path);
     }
   };
 
@@ -68,32 +61,21 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        {!["/", "/redirect"].includes(location.pathname) &&
-        routes[routeIndex - 1] ? (
-          <button
-            style={{ minWidth: "100px" }}
-            className="primary-button left"
-            onClick={() => {
-              handleArrowClick(routeIndex - 1);
-            }}
-          >
-            {routes[routeIndex - 1].name}
-          </button>
-        ) : (
-          <div>{disconnectButton()}</div>
-        )}
-        {!["/", "/redirect"].includes(location.pathname) &&
-        routes[routeIndex + 1] ? (
-          <button
-            className="primary-button right"
-            onClick={() => {
-              handleArrowClick(routeIndex + 1);
-            }}
-          >
-            {routes[routeIndex + 1]?.name}
-          </button>
-        ) : (
-          <div></div>
+        {!["/", "/redirect"].includes(location.pathname) && (
+          <>
+            {routes.map((route, index) => (
+              <button
+                key={index}
+                className={`navbar-button ${
+                  index === routeIndex ? "active" : ""
+                }`}
+                onClick={() => window.location.replace(route.path)}
+              >
+                {route.name}
+              </button>
+            ))}
+            {disconnectButton()}
+          </>
         )}
       </div>
     </>

@@ -49,7 +49,12 @@ interface Texts {
 
 const texts = {
   en: {
-    navbarDisconnect: "Disconnect",
+    meRouteName: "me",
+    artistsRouteName: "my artists",
+    songsRouteName: "my songs",
+    albumsRouteName: "my albums",
+    genresRouteName: "mis genres",
+    navbarDisconnect: "disconnect",
     navbarDisconnectConfirm: "Are you sure you want to disconnect?",
     albumsHeader: "My most listened albums",
     artistsHeader: "My favorite artists",
@@ -74,7 +79,7 @@ const texts = {
       "When accessing with Spotify, your username, artists and most listened songs will be read. This data will not be stored anywhere other than on your device or sent anywhere ;)",
     shortTermText: "Recently",
     mediumTermText: "From a while ago",
-    longTermText: "From forever",
+    longTermText: "Ever",
     shortTermDescription: "last 4 weeks",
     mediumTermDescription: "last 6 months",
     loaderText1: "Checking your tracks...",
@@ -90,7 +95,7 @@ const texts = {
     songsRouteName: "mis canciones",
     albumsRouteName: "mis álbumes",
     genresRouteName: "mis géneros",
-    navbarDisconnect: "Desconectar",
+    navbarDisconnect: "desconectar",
     navbarDisconnectConfirm: "¿Estás seguro de que quieres desconectar?",
     albumsHeader: "Mis álbumes más escuchados",
     artistsHeader: "Mis artistas favoritos",
