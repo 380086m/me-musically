@@ -25,7 +25,7 @@
   },
   "navbarDisconnectConfirm": {
     "en": "Are you sure you want to disconnect?",
-    "es": "¿Estás seguro de que quieres desconectar?"
+    "es": "¿Estás seguro de que te quieres desconectar?"
   },
   "albumsHeader": {
     "en": "My most listened albums",
@@ -113,7 +113,7 @@
     "es": "Desde hace un tiempo"
   },
   "longTermText": {
-    "en": "From forever",
+    "en": "Ever",
     "es": "Desde siempre"
   },
   "shortTermDescription": {
@@ -129,7 +129,7 @@
     "es": "Revisando tus canciones..."
   },
   "loaderText2": {
-    "en": "I like this song!",
+    "en": "I love that song!",
     "es": "¡Me encanta esa canción!"
   },
   "loaderText3": {
@@ -137,11 +137,11 @@
     "es": "Buscando tus artistas favoritos..."
   },
   "loaderText4": {
-    "en": "Here are your favorite albums",
+    "en": "So these are your favorite albums",
     "es": "Así que estos son tus álbumes favoritos"
   },
   "loaderText5": {
-    "en": "Great!",
+    "en": "Nice",
     "es": "Genial"
   },
   "loaderText6": {

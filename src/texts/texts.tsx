@@ -8,5 +8,5 @@ export const getText = (key: keyof Texts): string => {
       : navigator.language;
 
   const locale = userLocale.split("-")[0] as keyof Languages;
-  return texts[key][locale];
+  return texts[key]["en"];
 };
