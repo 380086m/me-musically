@@ -4,7 +4,7 @@ import { getAlbums, getArtists, getGenres, getTracks } from "../../api/utils";
 import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import ItemText from "../../components/ItemText/ItemText";
 import ScreenshotFooter from "../../components/ScreenshotFooter/ScreenshotFooter";
-import { getText } from "../../translate/texts";
+import { getText } from "../../texts/texts";
 import "../Screens.sass";
 
 function Me() {

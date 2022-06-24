@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { requestResources } from "../api/utils";
 import Loader from "../components/Loader/Loader";
-import { getText } from "../translate/texts";
+import { getText } from "../texts/texts";
 import { Auth } from "./Auth";
 
 function AuthRedirect() {

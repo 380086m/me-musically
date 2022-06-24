@@ -1,7 +1,7 @@
 import React from "react";
 import { Auth } from "../../auth/Auth";
 import spotifyBrand from "../../assets/spotify.png";
-import { getText } from "../../translate/texts";
+import { getText } from "../../texts/texts";
 
 function Start() {
   const auth = Auth.getInstance();

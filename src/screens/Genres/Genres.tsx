@@ -3,7 +3,7 @@ import { getGenres } from "../../api/utils";
 import List from "../../components/List/List";
 import { Item } from "../../components/List/types";
 import Showcase from "../../components/Showcase/Showcase";
-import { getText } from "../../translate/texts";
+import { getText } from "../../texts/texts";
 import "../Screens.sass";
 
 function Genres() {

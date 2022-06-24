@@ -1,0 +1,151 @@
+{
+  "meRouteName": {
+    "en": "me",
+    "es": "yo"
+  },
+  "artistsRouteName": {
+    "en": "my artists",
+    "es": "mis artistas"
+  },
+  "songsRouteName": {
+    "en": "my songs",
+    "es": "mis canciones"
+  },
+  "albumsRouteName": {
+    "en": "my albums",
+    "es": "mis álbumes"
+  },
+  "genresRouteName": {
+    "en": "mis genres",
+    "es": "mis géneros"
+  },
+  "navbarDisconnect": {
+    "en": "disconnect",
+    "es": "desconectar"
+  },
+  "navbarDisconnectConfirm": {
+    "en": "Are you sure you want to disconnect?",
+    "es": "¿Estás seguro de que quieres desconectar?"
+  },
+  "albumsHeader": {
+    "en": "My most listened albums",
+    "es": "Mis álbumes más escuchados"
+  },
+  "artistsHeader": {
+    "en": "My favorite artists",
+    "es": "Mis artistas favoritos"
+  },
+  "genresHeader": {
+    "en": "My favorite genres",
+    "es": "Mis géneros favoritos"
+  },
+  "meText1": {
+    "en": "This is",
+    "es": "Esto soy"
+  },
+  "meText2": {
+    "en": "me",
+    "es": "yo"
+  },
+  "meText3": {
+    "en": "musically",
+    "es": "musicalmente"
+  },
+  "meText4": {
+    "en": "sort of",
+    "es": "más o menos"
+  },
+  "meText5": {
+    "en": "I listen to",
+    "es": "Me gusta escuchar"
+  },
+  "meText6": {
+    "en": "But also like to listen to",
+    "es": "Aunque también escucho"
+  },
+  "meText7": {
+    "en": "My favorite artists are",
+    "es": "Mis artistas favoritos son"
+  },
+  "meText8": {
+    "en": "Some of my favorite albums are",
+    "es": "Algunos de mis álbumes favoritos son"
+  },
+  "meText9": {
+    "en": "Recently I listened to",
+    "es": "Recientemente he estado escuchando"
+  },
+  "meText10": {
+    "en": "and now I'm obsessed with",
+    "es": "y ahora mismo me encanta"
+  },
+
+  "meText11": {
+    "en": "of",
+    "es": "de"
+  },
+  "meText12": {
+    "en": "and",
+    "es": "y"
+  },
+  "songsHeader": {
+    "en": "My most listened songs",
+    "es": "Mis canciones más escuchadas"
+  },
+  "startDescription": {
+    "en": "me-musically shows you what you listen to in Spotify so you can share it.",
+    "es": "me-musically te muestra lo que más escuchas en Spotify para que puedas compartirlo."
+  },
+  "startButton": {
+    "en": "Start",
+    "es": "Comenzar"
+  },
+  "startDisclaimer": {
+    "en": "When you access with Spotify, you share with the app your username and your most listened songs and artists. This information will not be stored anywhere else than in your device nor will be sent to any part of the world ;)",
+    "es": "Cuando accedes con Spotify, compartes con la aplicación tu nombre de usuario y tus canciones y artistas más escuchados. Esta información no se guardará en ningún lugar más que en tu dispositivo ni será enviada a ninguna parte :;"
+  },
+  "shortTermText": {
+    "en": "Recently",
+    "es": "Recientemente"
+  },
+  "mediumTermText": {
+    "en": "From a while ago",
+    "es": "Desde hace un tiempo"
+  },
+  "longTermText": {
+    "en": "From forever",
+    "es": "Desde siempre"
+  },
+  "shortTermDescription": {
+    "en": "last 4 weeks",
+    "es": "últimas 4 semanas"
+  },
+  "mediumTermDescription": {
+    "en": "last 6 months",
+    "es": "últimos 6 meses"
+  },
+  "loaderText1": {
+    "en": "Checking your songs...",
+    "es": "Revisando tus canciones..."
+  },
+  "loaderText2": {
+    "en": "I like this song!",
+    "es": "¡Me encanta esa canción!"
+  },
+  "loaderText3": {
+    "en": "Searching your favorite artists...",
+    "es": "Buscando tus artistas favoritos..."
+  },
+  "loaderText4": {
+    "en": "Here are your favorite albums",
+    "es": "Así que estos son tus álbumes favoritos"
+  },
+  "loaderText5": {
+    "en": "Great!",
+    "es": "Genial"
+  },
+  "loaderText6": {
+    "en": "Let's start!",
+    "es": "¡Empezamos!"
+  }
+}
